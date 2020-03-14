@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="inputs">
+  <meta name="author" content="Grigorij Zotkevich">
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Подбор программы</title>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+      <h1 class="header__title">
+        Подбор программы
+      </h1>
+      <h2 class="header__subtitle">
+        ЗАПОЛНИТЕ АНКЕТУ И МЫ ПОДБЕРЕМ ПРОГРАММУ ПИТАНИЯ ДЛЯ ВАШЕГО КОТА
+      </h2>
+    </header>
+
+    <main class="content">
+
+      <fieldset class="form__input-container form__input-container_cat-info">
+        <label for="cat-name" class="form__label">ИМЯ:*</label>
+        <input type="text" class="form__item" name="cat-name" placeholder="БАРСИК" required>
+
+        <label for="cat-weight" class="form__label">ВЕС (КГ):*</label>
+        <input type="text" class="form__item" name="cat-weight" placeholder="7" required>
+
+        <label for="cat-age" class="form__label">ВОЗРАСТ (ЛЕТ):</label>
+        <input type="text" class="form__item" name="cat-age" placeholder="7">
+      </fieldset>
+
+      <fieldset class="form__input-container form__input-container_program-type">
+        <p class="form__item form__item_program-type"><input type="radio" checked value="weight-loss">
+          ПОХУДЕНИЕ</p>
+
+        <p class="form__item form__item_program-type"><input type="radio" value="weight-gain">
+          НАБОР МАССЫ</p>
+
+        <p class="form__item form__item_program-type last"><input type="radio" value="don't-know">
+          НЕ ЗНАЮ (НУЖЕН ВАШ СОВЕТ)</p>
+      </fieldset>
+
+    </main>
+  </div>
+</body>
+
+</html>

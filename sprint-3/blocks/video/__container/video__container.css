@@ -1,0 +1,12 @@
+@import url('../__item/video__item.css');
+
+.video__container {
+  display: grid;
+  grid-template-columns: repeat(2, 583px);
+  column-gap: 18px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+

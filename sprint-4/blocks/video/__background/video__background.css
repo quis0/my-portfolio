@@ -1,0 +1,35 @@
+@media screen and (max-width: 574px) {
+  .video__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 200px;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 767px) {
+  .video__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 252px;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .video__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+  }
+}

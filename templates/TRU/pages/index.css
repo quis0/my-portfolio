@@ -1,0 +1,8 @@
+@import url('../vendor/normalize.css');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic');
+@import url('../blocks/header/header.css');
+
+.page {
+  margin: 0 auto;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}

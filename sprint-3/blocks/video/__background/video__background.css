@@ -1,0 +1,9 @@
+.video__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 323px;
+  width: 583px;
+  border-radius: 5px;
+}

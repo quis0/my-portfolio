@@ -1,0 +1,7 @@
+@import url('../__line/intro__line.css');
+
+.intro__caption {
+  margin: 0 auto 92px 0;
+  list-style-type: none;
+  padding: 0;
+}

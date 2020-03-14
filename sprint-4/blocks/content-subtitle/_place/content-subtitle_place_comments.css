@@ -1,0 +1,11 @@
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .content-subtitle.content-subtitle_place_comments {
+    margin: 0 0 42px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .content-subtitle.content-subtitle_place_comments {
+    margin: 0 0 66px 0;
+  }
+}

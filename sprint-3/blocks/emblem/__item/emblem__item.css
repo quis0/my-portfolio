@@ -1,0 +1,8 @@
+@import url('../__city/emblem__city.css');
+@import url('../__image/emblem__image.css');
+
+
+.emblem__item {
+  display: flex;
+  flex-direction: column;
+}

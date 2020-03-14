@@ -1,0 +1,7 @@
+.lead__image {
+  width: 984px;
+  height: 554px;
+  background-image: url('../../../images/second-class-carriage.jpg');
+  display: flex;
+  justify-content: center;
+}

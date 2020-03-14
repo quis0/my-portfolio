@@ -1,0 +1,11 @@
+@import url('../__link/barentsburg__link.css');
+@import url('../__text/barentsburg__text.css');
+@import url('../__url-heading/barentsburg__url-heading.css');
+@import url('../__column/barentsburg__column.css');
+
+.barentsburg__container {
+  display: flex;
+  column-gap: 120px;
+  margin: 48px 0 0 0;
+
+}

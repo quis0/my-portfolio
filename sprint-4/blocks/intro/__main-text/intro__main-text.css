@@ -1,0 +1,36 @@
+.intro__main-text {
+  font-style: normal;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 767px) {
+  .intro__main-text {
+    font-size: 1rem;
+    line-height: 27px;
+    margin: 0 0 32px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .intro__main-text {
+    font-size: .875rem;
+    line-height: 24px;
+    margin: 0 auto 24px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .intro__main-text {
+    font-size: .875rem;
+    line-height: 24px;
+    margin: 0 auto 24px 0;
+    max-width: 692px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .intro__main-text {
+    max-width: 683px;
+  }
+}

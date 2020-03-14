@@ -1,0 +1,24 @@
+@import url('../__line/intro__line.css');
+@import url('../__span/intro__span.css');
+.intro__caption {
+  list-style-type: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .intro__caption {
+    margin: 0 auto 64px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .intro__caption {
+    margin: 0 auto 98px 0;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .intro__caption {
+    margin: 0 auto 102px 0;
+  }
+}

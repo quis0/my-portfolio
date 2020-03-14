@@ -1,0 +1,15 @@
+@import url('./__image/comment__image.css');
+@import url('./__quote/comment__quote.css');
+@import url('./__author/comment__author.css');
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 1023px) {
+  .comment {
+    align-items: start;
+  }
+}

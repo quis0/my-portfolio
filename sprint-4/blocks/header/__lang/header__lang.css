@@ -1,0 +1,36 @@
+@import url('./_selected/header__lang_selected.css');
+.header__lang {
+  color: #FFFFFF;
+  padding: 0;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 100%;
+  text-align: right;
+  color: #FFFFFF;
+}
+
+.header__lang:hover {
+  opacity: .7;
+  transition: ease-in-out .25s;
+}
+
+@media screen and (max-width: 574px) {
+  .header__lang {
+    font-size: 1.125rem;
+  }
+  .header__lang:last-child{
+    margin-left:16px;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .header__lang {
+    font-size: 1.5rem;
+  }
+  .header__lang:last-child{
+    margin-left: 18px;
+  }
+}
+
+

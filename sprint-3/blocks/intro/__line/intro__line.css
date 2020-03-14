@@ -1,0 +1,9 @@
+@import url('./_font-size/intro__line_font-size_small.css');
+@import url('./_font-size/intro__line_font-size_medium.css');
+
+.intro__line {
+  font-weight: 400;
+  font-style: normal;
+  color: #FFFFFF;
+  margin: 0;
+}

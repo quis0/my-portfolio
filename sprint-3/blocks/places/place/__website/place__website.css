@@ -1,0 +1,7 @@
+@import url('../__url-heading/place__url-heading.css');
+@import url('../__url/place__url.css');
+
+.place__website {
+  max-width: 484px;
+  align-self: end;
+}

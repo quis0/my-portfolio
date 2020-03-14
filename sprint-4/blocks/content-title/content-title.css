@@ -1,0 +1,40 @@
+.content-title {
+  font-style: normal;
+  font-weight: 900;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 767px) {
+  .content-title {
+    font-size: 2rem;
+    line-height: 35px;
+    margin: 0 0 16px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .content-title {
+    font-size: 2.625rem;
+    line-height: 46px;
+    margin: 0 0 24px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .content-title {
+    font-size: 4.5rem;
+    line-height: 78px;
+    margin: 0 0 48px 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .content-title {
+    font-size: 4.5rem;
+    line-height: 78px;
+    margin: 0 0 48px 0;
+    max-width: 800px;
+  }
+}
+

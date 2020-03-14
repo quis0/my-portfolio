@@ -1,0 +1,10 @@
+@import url('../__item/emblem__item.css');
+
+.emblem__container {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 208px);
+  column-gap: calc((1184px - 5 * 208px)/5);
+}

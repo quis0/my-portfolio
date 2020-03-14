@@ -1,0 +1,30 @@
+@import url('../__link/footer__link.css');
+
+@media screen and (max-width: 574px) {
+  .footer__links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 16px 0;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 767px) {
+  .footer__links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer__links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -1,0 +1,23 @@
+@import url('../__heading/additional__heading.css');
+@import url('../__text/additional__text.css');
+@import url('../__item-bg/additional__item-bg.css');
+.additional__item {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 5px;
+}
+
+.additional__item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 5px;
+  opacity: 0.5;
+  z-index: 1;
+}

@@ -1,0 +1,35 @@
+.footer__copyright {
+  font-style: normal;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 574px) {
+  .footer__copyright {
+    font-size: .875rem;
+    line-height: 20px;
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 767px) {
+  .footer__copyright {
+    font-size: .75rem;
+    line-height: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .footer__copyright {
+    font-size: .875rem;
+    line-height: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

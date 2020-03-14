@@ -1,0 +1,9 @@
+@import url('../__link/footer__link.css');
+
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0 -18px 0 0;
+  padding: 0;
+}

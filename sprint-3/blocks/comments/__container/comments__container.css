@@ -1,0 +1,7 @@
+@import url('../../comment/comment.css');
+
+.comments__container {
+  display: grid;
+  grid-template-columns: repeat(3, 382px);
+  column-gap: 19px;
+}

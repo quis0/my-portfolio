@@ -1,0 +1,40 @@
+@import url('../../comment/comment.css');
+
+@media screen and (max-width: 574px) {
+  .comments__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 767px) {
+  .comments__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 539px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .comments__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 660px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .comments__container {
+    display: grid;
+    grid-template-columns: repeat(3, 296px);
+    column-gap: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .comments__container {
+    display: grid;
+    grid-template-columns: repeat(3, 382px);
+    column-gap: 19px;
+  }
+}
