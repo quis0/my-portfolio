@@ -1,6 +1,8 @@
 @import url('../vendor/normalize.css');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 @import url('../blocks/header/header.css');
+@import url('../blocks/card/card.css');
+@import url('../blocks/button/button.css');
 
 .page {
   margin: 0 auto;
