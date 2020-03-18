@@ -5,9 +5,10 @@
 @import url('./__icon/header__icon.css');
 
 .header {
+  max-width: 1280px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 37px 172px 0 172px;
   box-sizing: border-box;
-  margin-bottom: 117px;
+  margin: 0 auto 117px auto;
 }

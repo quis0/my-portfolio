@@ -1,0 +1,9 @@
+@import url('../__title/features__title.css');
+@import url('../__cards/features__cards.css');
+
+.features__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 172px 92px 172px;
+  box-sizing: border-box;
+}

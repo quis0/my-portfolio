@@ -5,10 +5,12 @@
 
 
 .card {
+  max-width: 1280px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 117px;
   grid-template-rows: 1fr;
   padding: 0 172px;
   box-sizing: border-box;
+  margin: 0 auto 47px auto;
 }
