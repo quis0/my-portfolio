@@ -4,6 +4,7 @@
 @import url('../blocks/card/card.css');
 @import url('../blocks/button/button.css');
 @import url('../blocks/features/features.css');
+@import url('../blocks/contacs/contacs.css');
 
 .page {
   margin: 0 auto;

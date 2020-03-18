@@ -1,0 +1,9 @@
+@import url('../social-icon/social-icon.css');
+
+.social-link {
+  margin-left: 20px;
+}
+
+.social-link:hover {
+  opacity: .8;
+}

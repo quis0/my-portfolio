@@ -1,4 +1,6 @@
-.header__links {
+@import url('../social-link/social-link.css');
+
+.social-links {
   display: flex;
   flex-direction: row;
   list-style-type: none;

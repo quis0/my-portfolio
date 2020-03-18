@@ -1,8 +1,6 @@
 @import url('./__logo/header__logo.css');
 @import url('./__container/header__container.css');
-@import url('./__links/header__links.css');
-@import url('./__link/header__link.css');
-@import url('./__icon/header__icon.css');
+
 
 .header {
   max-width: 1280px;
