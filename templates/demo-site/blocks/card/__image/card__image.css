@@ -1,0 +1,6 @@
+.card__image {
+  object-fit: contain;
+  justify-self: center;
+  border-radius: 50%;
+  border: 10px solid white;
+}

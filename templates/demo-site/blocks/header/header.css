@@ -1,0 +1,13 @@
+@import url('./__logo/header__logo.css');
+@import url('./__container/header__container.css');
+@import url('./__links/header__links.css');
+@import url('./__link/header__link.css');
+@import url('./__icon/header__icon.css');
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 37px 172px 0 172px;
+  box-sizing: border-box;
+  margin-bottom: 117px;
+}
