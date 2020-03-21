@@ -1,10 +1,15 @@
 @import url('../social-icon/social-icon.css');
 @import url('./_pace_footer/social-link_place_footer.css');
-
 .social-link {
   margin-left: 20px;
 }
 
 .social-link:hover {
   opacity: .8;
+}
+
+@media (max-width: 424px) {
+  .social-link {
+    margin-left: 13px;
+  }
 }

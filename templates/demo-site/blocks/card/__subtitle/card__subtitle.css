@@ -6,3 +6,9 @@
   color: #FFBB01;
   margin: 34px auto 14px 0;
 }
+
+@media (max-width: 1023px) {
+  .card__subtitle {
+    font-size: 18px;
+  }
+}

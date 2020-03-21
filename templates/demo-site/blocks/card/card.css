@@ -11,6 +11,34 @@
   column-gap: 117px;
   grid-template-rows: 1fr;
   padding: 0 172px;
-  box-sizing: border-box;
   margin: 0 auto 47px auto;
 }
+
+@media (max-width: 1279px) {
+  .card {
+    max-width: 1024px;
+    padding: 0 92px;
+    margin: 0 auto 47px auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .card {
+    max-width: 768px;
+    padding: 0 32px;
+    margin: 0 auto 47px auto;
+    column-gap: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    max-width: 600px;
+    padding: 0 28px;
+    margin: 0 auto 47px auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ВОТ ТУТ ОСТАНОВИЛСЯ. НАЧАТЬ ПОРЯДОК ЭЛЕМЕНТОВ */

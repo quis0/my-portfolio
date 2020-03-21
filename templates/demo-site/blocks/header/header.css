@@ -7,6 +7,45 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 37px 172px 0 172px;
-  box-sizing: border-box;
   margin: 0 auto 117px auto;
+}
+
+@media (max-width: 1279px) {
+  .header {
+    max-width: 1024px;
+    padding: 37px 92px 0 92px;
+    margin: 0 auto 87px auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .header {
+    max-width: 768px;
+    padding: 37px 32px 0 32px;
+    margin: 0 auto 67px auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    max-width: 600px;
+    padding: 28px 28px 0 28px;
+    margin: 0 auto 55px auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .header {
+    max-width: 425px;
+    padding: 28px 16px 0 16px;
+    margin: 0 auto 55px auto;
+  }
+}
+
+@media (max-width: 424px) {
+  .header {
+    max-width: 267px;
+    padding: 28px 20px 0 20px;
+    margin: 0 auto 55px auto;
+  }
 }

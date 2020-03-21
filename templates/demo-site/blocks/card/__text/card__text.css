@@ -6,3 +6,11 @@
   color: #FFFFFF;
   margin: 0 auto 50px 0;
 }
+
+@media (max-width: 1023px) {
+  .card__text {
+    font-size: 14px;
+    margin: 0 auto 37px 0;
+  }
+}
+
