@@ -1,4 +1,5 @@
 @import url('../social-icon/social-icon.css');
+@import url('./_pace_footer/social-link_place_footer.css');
 
 .social-link {
   margin-left: 20px;

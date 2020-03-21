@@ -1,4 +1,5 @@
 @import url('../__form/contacts__form.css');
+@import url('../__info/contacts__info.css');
 
 .contacts__container {
   display: grid;
