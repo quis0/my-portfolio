@@ -50,7 +50,7 @@
         Разрабатываю сайты для малого и среднего бизнеса. У меня можно заказать дизайн и верстку
         небольшого сайта или интернет-магазина
       </p>
-      <a href="" class="button">Бесплатная&nbsp;консультация</a>
+      <a href="#contacts__form" class="button">Бесплатная&nbsp;консультация</a>
     </div>
 
     <img src="./images/avatar.jpg" alt="фотография фрилансера" class="card__image">
@@ -119,9 +119,21 @@
 
   </section>
 
-  <footer class="contacs">
+  <footer class="contacts">
     <h2 class="contacts__title">Свяжитесь со мной</h2>
+
     <div class="contacts__container">
+
+      <form class="contacts__form" id="contacts__form">
+
+        <h3 class="contacts__form-title">Можете просто оставить заявку, я позвоню вам сегодня</h3>
+
+        <input type="text" class="contacts__input contacts__input_icon_user" placeholder="Ваше имя" required>
+
+        <input type="tel" class="contacts__input contacts__input_icon_phone" placeholder="Ваш телефон" required>
+
+        <input type="submit" class="button" value="Бесплатная консультация">
+      </form>
 
     </div>
   </footer>

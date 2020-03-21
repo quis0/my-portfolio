@@ -1,0 +1,7 @@
+@import url('../__form/contacts__form.css');
+
+.contacts__container {
+  display: grid;
+  grid-template-columns: 458px auto;
+  grid-column-gap: 96px;
+}
