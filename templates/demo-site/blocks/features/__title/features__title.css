@@ -6,3 +6,9 @@
   color: #FFFFFF;
   margin: 0 0 84px 0;
 }
+
+@media (max-width: 1023px) {
+  .features__title {
+    margin: 0 0 60px 0;
+  }
+}

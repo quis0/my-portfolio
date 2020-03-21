@@ -6,3 +6,10 @@
   color: #FFFFFF;
   margin: 22px 0 16px 0;
 }
+
+@media (max-width: 767px) {
+  .features__card-title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

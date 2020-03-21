@@ -9,3 +9,10 @@
   padding: 0;
   margin: 0;
 }
+
+@media (max-width: 767px) {
+  .features__cards {
+    column-gap: 18px;
+    row-gap: 32px;
+  }
+}

@@ -6,3 +6,9 @@
   color: #FFFFFF;
   margin: 0;
 }
+
+@media (max-width: 767px) {
+  .features__card-text {
+    font-size: 14px;
+  }
+}
