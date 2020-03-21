@@ -1,0 +1,7 @@
+@import url('../__data/contacts__data.css');
+@import url('../__social/contacts__social.css');
+@import url('../__privacy-policy/contacts__privacy-policy.css');
+
+.contacts__info {
+  position: relative;
+}

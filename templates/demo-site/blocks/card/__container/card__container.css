@@ -1,0 +1,13 @@
+@import url('../__subtitle/card__subtitle.css');
+@import url('../__title/card__title.css');
+@import url('../__text/card__text.css');
+
+@media (max-width: 767px) {
+  .card__container {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+  }
+}
+
+

@@ -11,3 +11,27 @@
     height: 300px;
   }
 }
+
+@media (max-width: 767px) {
+  .card__image {
+    order: 1;
+    margin: 0 auto 30px auto;
+    border: 7px solid white;
+  }
+}
+
+@media (max-width: 599px) {
+  .card__image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
+    border: 3px solid white;
+  }
+}
+
+@media (max-width: 374px) {
+  .card__image {
+    width: 107px;
+    height: 107px;
+  }
+}

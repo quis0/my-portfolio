@@ -1,7 +1,5 @@
 @import url('./__image/card__image.css');
-@import url('./__subtitle/card__subtitle.css');
-@import url('./__text/card__text.css');
-@import url('./__title/card__title.css');
+@import url('./__container/card__container.css');
 
 
 .card {
@@ -41,4 +39,17 @@
   }
 }
 
-/* ВОТ ТУТ ОСТАНОВИЛСЯ. НАЧАТЬ ПОРЯДОК ЭЛЕМЕНТОВ */
+@media (max-width: 599px) {
+  .card {
+    max-width: 425px;
+    padding: 0 16px;
+    margin: 0 auto 42px auto;
+  }
+}
+
+@media (max-width: 424px) {
+  .card {
+    max-width: 267px;
+    padding: 0 20px;
+  }
+}

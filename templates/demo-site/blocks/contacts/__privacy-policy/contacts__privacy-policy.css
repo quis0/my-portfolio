@@ -1,0 +1,16 @@
+.contacts__privacy-policy {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  text-decoration-line: underline;
+  color: #949494;
+}
+
+.contacts__privacy-policy:hover {
+  opacity: .8;
+}

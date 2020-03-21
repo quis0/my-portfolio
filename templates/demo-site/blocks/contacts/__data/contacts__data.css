@@ -1,0 +1,9 @@
+@import url('../__data-title/contacts__data-title.css');
+@import url('../__data-text/contacts__data-text.css');
+
+.contacts__data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 96px;
+  margin-bottom: 40px;
+}

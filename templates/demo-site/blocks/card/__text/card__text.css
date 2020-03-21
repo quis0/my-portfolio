@@ -9,8 +9,20 @@
 
 @media (max-width: 1023px) {
   .card__text {
-    font-size: 14px;
     margin: 0 auto 37px 0;
   }
 }
 
+@media (max-width: 767px) {
+  .card__text {
+    order: 4;
+  }
+}
+
+@media (max-width: 599px) {
+  .card__text {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 auto 34px 0;
+  }
+}

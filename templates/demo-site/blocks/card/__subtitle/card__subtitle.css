@@ -12,3 +12,18 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 767px) {
+  .card__subtitle {
+    order: 2;
+    margin: 0 auto 4px auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .card__subtitle {
+    font-size: 16px;
+    line-height: 27px;
+  }
+}
+

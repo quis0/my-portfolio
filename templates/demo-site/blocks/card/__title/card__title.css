@@ -12,3 +12,19 @@
     font-size: 38px;
   }
 }
+
+@media (max-width: 767px) {
+  .card__title {
+    order: 3;
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .card__title {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 auto 15px auto;
+  }
+}
+
