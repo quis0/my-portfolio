@@ -1,0 +1,9 @@
+.button.button_place_footer {
+  line-height: 28px;
+}
+
+@media (max-width: 599px) {
+  .button.button_place_footer {
+    font-size: 10px;
+  }
+}

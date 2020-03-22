@@ -6,3 +6,17 @@
   grid-template-columns: 458px auto;
   grid-column-gap: 96px;
 }
+
+@media (max-width: 1279px) {
+  .contacts__container {
+    grid-template-columns: 458px 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .contacts__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+

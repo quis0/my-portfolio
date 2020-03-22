@@ -1,4 +1,5 @@
 @import url('../social-link/social-link.css');
+@import url('./_place/social-links_place_footer.css');
 
 .social-links {
   display: flex;

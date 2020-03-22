@@ -7,3 +7,11 @@
   color: #000000;
   margin: 0 0 30px 0;
 }
+
+@media (max-width: 599px) {
+  .contacts__form-title {
+    font-size: 15px;
+    line-height: 21px;
+    margin: 0 0 28px 0;
+  }
+}

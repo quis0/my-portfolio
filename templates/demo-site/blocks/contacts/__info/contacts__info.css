@@ -5,3 +5,15 @@
 .contacts__info {
   position: relative;
 }
+
+@media (max-width: 767px) {
+  .contacts__info {
+    display: flex;
+  }
+}
+
+@media (max-width: 599px) {
+  .contacts__info {
+    flex-direction: column;
+  }
+}

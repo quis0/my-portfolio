@@ -28,4 +28,18 @@
   }
 }
 
+@media (max-width: 599px) {
+  .features__container {
+    max-width: 425px;
+    padding: 64px 16px 60px 16px;
+  }
+}
+
+@media (max-width: 424px) {
+  .features__container {
+    max-width: 267px;
+    padding: 64px 20px 60px 20px;
+  }
+}
+
 /* ТУТ НА УСТРОЙСТВА МЕНЬШЕ */

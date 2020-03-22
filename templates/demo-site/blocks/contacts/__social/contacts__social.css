@@ -4,3 +4,22 @@
 .contacts__social {
   margin-bottom: 40px;
 }
+
+@media (max-width: 1023px) {
+  .contacts__social {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .contacts__social {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 424px) {
+  .contacts__social {
+    margin: 0 0 23px 0;
+  }
+}

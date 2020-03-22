@@ -10,4 +10,11 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 599px) {
+  .contacts__input {
+    height: 64px;
+    margin: 0 0 18px 0;
+  }
+}
+
 

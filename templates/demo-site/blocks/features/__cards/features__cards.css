@@ -16,3 +16,18 @@
     row-gap: 32px;
   }
 }
+
+@media (max-width: 599px) {
+  .features__cards {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 33px;
+
+  }
+}
+
+@media (max-width: 424px) {
+  .features__cards {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+}

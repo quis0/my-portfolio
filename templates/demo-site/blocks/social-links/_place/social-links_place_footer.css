@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+  .social-links.social-links_place_footer {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0 0 50px;
+  }
+}
+
+@media (max-width: 599px) {
+  .social-links.social-links_place_footer {
+    flex-direction: row;
+    margin: 0 0 44px 0;
+  }
+}

@@ -6,3 +6,9 @@
 .contacts__data-text_type_link:hover {
   opacity: .8;
 }
+
+@media (max-width: 1023px) {
+  .contacts__data-text.contacts__data-text_type_link {
+    margin: 0 0 13px 0;
+  }
+}

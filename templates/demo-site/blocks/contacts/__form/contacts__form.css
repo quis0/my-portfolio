@@ -10,3 +10,18 @@
   box-shadow: -5px 5px 0px #FFC41D;
   border-radius: 5px;
 }
+
+@media (max-width: 767px) {
+  .contacts__form {
+    max-width: 80%;
+    margin: 0 auto 54px auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .contacts__form {
+    max-width: 261px;
+    padding: 39px 20px 48px 20px;
+  }
+}
+

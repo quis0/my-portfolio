@@ -8,3 +8,16 @@
   color: #FFFFFF;
   margin: 0;
 }
+
+@media (max-width: 1023px) {
+  .contacts__data-text {
+    margin: 0 0 35px 0;
+  }
+}
+
+@media (max-width: 424px) {
+  .contacts__data-text {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

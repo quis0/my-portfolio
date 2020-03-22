@@ -6,3 +6,16 @@
   color: #FFFFFF;
   margin: 0 0 17px 0;
 }
+
+@media (max-width: 1023px) {
+  .contacts__data-title {
+    margin: 0 0 11px 0;
+  }
+}
+
+@media (max-width: 424px) {
+  .contacts__data-title {
+    font-size: 18px;
+    list-style: 21px;
+  }
+}

@@ -1,3 +1,15 @@
 .social-link.social-link_place_footer {
   margin: 0 21px 0 0;
 }
+
+@media (max-width: 767px) {
+  .social-link.social-link_place_footer {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .social-link.social-link_place_footer {
+    margin: 0 13px 0 0;
+  }
+}
