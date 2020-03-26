@@ -24,11 +24,11 @@ function palindrome(str) {
 console.log(palindrome('топ!от')); // должно быть true
 console.log(palindrome('Saippuakivikauppias')); // true
 console.log(palindrome('привет')); // false
-
+console.log(palindrome('О, лета тело!')); // true
 /*
  * Бонус. Задача для любознательных. Пусть функция принимает на вход любую строку,
  * но пробелы и знаки препинания не учитывает. Например:
  *
- * palindrome('О, лета тело!'); // true
+ *
  *
 */
