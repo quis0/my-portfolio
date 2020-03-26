@@ -8,6 +8,8 @@ Some of them were based on free templates from the Internet.
 
 * HTML
 * CSS
+* JS
+* BEM methodology
 * Git
 * Data structures and algorithms
 * English proficiency: Intermediate
