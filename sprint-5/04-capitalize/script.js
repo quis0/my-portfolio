@@ -32,4 +32,4 @@ function capitalize(str) {
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
 
-console.log(capitalize('ы  ')); // "Молодость Всё Простит"
+console.log(capitalize('ы  ')); // "Ы"
