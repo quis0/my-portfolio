@@ -20,10 +20,10 @@ function fibonacci(n) {
     return fibonacci.cache[n];
   }
 
-  let firstNumber = 0, secondNumber = 1, sum = 0;
+  let firstNumber = 0, secondNumber = 1, sum = 0, i = 0;
 
   if (n < 0) {
-    for (let i = -1; i > n; i--) {
+    for (i = -1; i > n; i--) {
       sum = firstNumber - secondNumber;
       firstNumber = secondNumber;
       secondNumber = sum;
@@ -34,7 +34,7 @@ function fibonacci(n) {
     fibonacci.cache[n] = 0;
   }
   else {
-    for (let i = 1; i < n; i++) {
+    for (i = 1; i < n; i++) {
       sum = firstNumber + secondNumber;
       firstNumber = secondNumber;
       secondNumber = sum;
@@ -47,6 +47,6 @@ function fibonacci(n) {
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
-for (let i = -5; i <= 5; i++) {
+for (i = -5; i <= 5; i++) {
   console.log(fibonacci(i));
 }
