@@ -28,3 +28,13 @@ function findVowels(str) {
 console.log(findVowels('здравствуй Тте')); // 3
 console.log(findVowels('привет')); // 2
 console.log(findVowels('хеллоу')); // 3
+
+
+ /*  
+ *   Принято!
+ * 	 
+ * 	Вы используете цикл, это очень долго. Можно было бы проходить одним циклом по строке 
+ * 	и с помощью indexOf определить имеется ли буква в массиве 
+ * 	https: //developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf 
+ * 	 
+ */

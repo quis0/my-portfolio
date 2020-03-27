@@ -26,3 +26,14 @@ function uniq(arr) {
 console.log(uniq([1, 2, 5, 4, 2])); // [1, 2, 5, 4]
 console.log(uniq([3, 3, 3, 5])); // [3, 5]
 console.log(uniq('1, 4, 2, 2, 3, 4, 8]')); // It's not an array
+ /*  
+ *   Принято!
+ * 	Можно вот такое решение
+ function anagram(stringA, stringB) { 	  
+      return cleanString(stringA) === cleanString(stringB);	  
+    }  
+      
+  function cleanString(str) {	  
+        return str.replace(/[^]/g).toLowerCase().split('').sort().join()  
+ }   	 
+ */

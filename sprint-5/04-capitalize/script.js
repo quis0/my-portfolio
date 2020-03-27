@@ -33,3 +33,15 @@ function capitalize(str) {
 
 
 console.log(capitalize('ы  ')); // "Ы"
+ /*  
+ *   Принято!
+ * 	 Более коротким решением было бы:
+ * 	return str.replace(/(?:^|)/g, function(a) { return a.toUpperCase(); })
+ * 	 
+ * 	В этом решении использована довольно сложная техника - регулярные выражения. Вы можете почитать про них по ссылке
+ * 	https://learn.javascript.ru/regular-expressions
+ * 	
+ * 	А вот тренажер, если вы захотите попрактиковаться 
+ * 	https://regex101.com/
+ * 	 
+ */

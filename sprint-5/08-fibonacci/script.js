@@ -50,3 +50,13 @@ function fibonacci(n) {
 for (i = -5; i <= 5; i++) {
   console.log(fibonacci(i));
 }
+
+
+ /*  
+ *   Принято!
+ * 	Можно вот такое решение поиска числа Фибоначчи взять
+ function fib(n) { 	  
+      return n <= 1 ? n : fib(n - 1) + fib(n - 2);	  
+    }  
+      
+ */

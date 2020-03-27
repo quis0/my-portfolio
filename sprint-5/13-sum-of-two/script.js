@@ -51,3 +51,7 @@ function sumOfTwo(arr, sum) {
 
 console.log(sumOfTwo([1, 2, 3, 4, 5], 4)); // true (так как 1 + 3 === 4)
 console.log(sumOfTwo([1, 2, 3, 4, 5], 100)); // false
+
+ /*  
+ *   Принято
+ */

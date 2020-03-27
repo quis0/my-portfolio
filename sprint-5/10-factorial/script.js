@@ -24,3 +24,7 @@ function factorial(n) {
 console.log(factorial(1)); // 1
 console.log(factorial(1)); // 1
 console.log(factorial(2)); // 720
+
+ /*  
+ *   Принято, отличное решение!
+ */

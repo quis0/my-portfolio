@@ -53,3 +53,7 @@ function intersection(arr1, arr2) {
 
 console.log(intersection([1, 5, 4, 2, 4.4], [8, 91, 4, 1, 4])); // [4, 1]
 
+
+ /*  
+ *   Принято, отличное решение!
+ */

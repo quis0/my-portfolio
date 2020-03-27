@@ -27,3 +27,15 @@ function anagram(str1, str2) {
 
 console.log(anagram('up', 'UP')); // true
 // console.log(anagram('hello', 'bye')); // false
+
+ /*  
+ *   Принято!
+ * 	Можно вот такое решение
+ function anagram(stringA, stringB) { 	  
+      return cleanString(stringA) === cleanString(stringB);	  
+    }  
+      
+  function cleanString(str) {	  
+        return str.replace(/[^]/g).toLowerCase().split('').sort().join()  
+ }   	 
+ */
