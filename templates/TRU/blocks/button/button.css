@@ -1,0 +1,14 @@
+@import url('./_style/button_style_red.css');
+
+.button {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  padding: 16px 30px;
+}
+
+.button:hover {
+  opacity: .7;
+}

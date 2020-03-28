@@ -3,3 +3,7 @@
   width: 154px;
   height: 81px;
 }
+
+.header__logo:hover {
+  opacity: .7;
+}
