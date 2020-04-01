@@ -38,7 +38,7 @@ function primes(num) {
     return undefined;
   }
 
-  let arr = [];
+  const arr = [];
   for (let i = 1; i <= num; i++) {
     if (isPrime(i)) {
       arr.push(i);
@@ -49,9 +49,9 @@ function primes(num) {
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
-console.log(primes(6)); // [2, 3, 5]
+console.log(primes(-7)); // [2, 3, 5]
 console.log(primes(17)); // [2, 3, 5, 7, 11, 13, 17]
 
- /*  
+ /*
  *   Принято
  */
