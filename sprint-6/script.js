@@ -42,8 +42,11 @@ const initialCards = [
 ];
 
 const placesList = document.querySelector('.places-list');
+const popup = document.querySelector('.popup');
+const addButton = document.querySelector('.user-info__button');
 
 function createCard(name, link) {
+
   const cardContainer = document.createElement('div');
   cardContainer.classList.add('place-card');
 
@@ -71,7 +74,6 @@ function createCard(name, link) {
   cardContainer.appendChild(imageContainer);
   cardContainer.appendChild(cardDescriptionContainer);
 
-
   return cardContainer;
 };
 
@@ -82,3 +84,11 @@ function addCards() {
 }
 
 addCards();
+
+function addCard() {
+  popup.classList.toggle('popup_is-opened');
+}
+
+
+
+addButton.addEventListener('click', addCard);
