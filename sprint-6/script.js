@@ -44,6 +44,7 @@ const initialCards = [
 const placesList = document.querySelector('.places-list');
 const popup = document.querySelector('.popup');
 const addButton = document.querySelector('.user-info__button');
+const closePopup = document.querySelector('.popup__close');
 
 function createCard(name, link) {
 
@@ -81,14 +82,24 @@ function addCards() {
   initialCards.forEach(function(value) {
     placesList.appendChild(createCard(value.name, value.link));
   });
-}
+};
+
+function togglePopup() {
+  popup.classList.toggle('popup_is-opened');
+};
+
+function toggleLike(event) {
+  if (event.target.classList.contains('place-card__like-icon')) {
+    event.target.classList.toggle('place-card__like-icon_liked');
+  }
+};
+
+
 
 addCards();
 
-function addCard() {
-  popup.classList.toggle('popup_is-opened');
-}
+addButton.addEventListener('click', togglePopup);
+closePopup.addEventListener('click', togglePopup);
+placesList.addEventListener('click', toggleLike);
 
 
-
-addButton.addEventListener('click', addCard);
