@@ -43,8 +43,11 @@ const initialCards = [
 
 const placesList = document.querySelector('.places-list');
 const popup = document.querySelector('.popup');
-const addButton = document.querySelector('.user-info__button');
-const closePopup = document.querySelector('.popup__close');
+const popupContent = document.querySelector('.popup__content');
+const popupForm = document.forms.new;
+const formButton = document.querySelector('.popup__button');
+const userInfo = document.querySelector('.user-info');
+const divs = document.querySelectorAll('div');
 
 function createCard(name, link) {
 
@@ -57,6 +60,7 @@ function createCard(name, link) {
 
   const buttonDeleteIcon = document.createElement('button');
   buttonDeleteIcon.classList.add('place-card__delete-icon');
+  buttonDeleteIcon.addEventListener('click', deleteCard);
 
   const cardDescriptionContainer = document.createElement('div');
   cardDescriptionContainer.classList.add('place-card__description');
@@ -78,14 +82,20 @@ function createCard(name, link) {
   return cardContainer;
 };
 
+function deleteCard(event) {
+  placesList.removeChild(event.target.parentNode.parentNode);
+};
+
 function addCards() {
   initialCards.forEach(function(value) {
     placesList.appendChild(createCard(value.name, value.link));
   });
 };
 
-function togglePopup() {
-  popup.classList.toggle('popup_is-opened');
+function togglePopup(event) {
+  if (event.target.classList.contains('popup__close') || event.target.classList.contains('user-info__button')) {
+    popup.classList.toggle('popup_is-opened');
+  }
 };
 
 function toggleLike(event) {
@@ -94,12 +104,24 @@ function toggleLike(event) {
   }
 };
 
+function addCard(event) {
+  event.preventDefault();
 
+  const name = popupForm.elements.name;
+  const link = popupForm.elements.link;
+
+  const cardContainer = createCard(name.value, link.value);
+
+  placesList.appendChild(cardContainer);
+
+  popup.classList.toggle('popup_is-opened');
+  popupForm.reset();
+};
 
 addCards();
 
-addButton.addEventListener('click', togglePopup);
-closePopup.addEventListener('click', togglePopup);
+userInfo.addEventListener('click', togglePopup);
+popupContent.addEventListener('click', togglePopup);
 placesList.addEventListener('click', toggleLike);
-
+popupForm.addEventListener('submit', addCard);
 
