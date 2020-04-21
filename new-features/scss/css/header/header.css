@@ -1,0 +1,8 @@
+@import url("./__title/header__title.css");
+@import url("./__subtitle/header__subtitle.css");
+@import url("./__text/header__text.css");
+.header {
+  font-family: "Consolas", "Arial";
+}
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,10 @@
+@import url('./__title/header__title.scss');
+@import url('./__subtitle/header__subtitle.scss');
+@import url('./__text/header__text.scss');
+
+$font-family: 'Consolas', 'Arial';
+
+.header {
+  font-family: $font-family;
+}
+

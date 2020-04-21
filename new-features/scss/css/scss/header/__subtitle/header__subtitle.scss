@@ -1,0 +1,28 @@
+$block-width: 300px;
+$bg-color: skyblue;
+$content: ' SCSS!';
+
+@mixin flexible () {
+  display: flex;
+  align-items: center;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.header__subtitle {
+  @include flexible();
+  border-style: solid;
+  border-color: darkblue;
+  @include border-radius(10px);
+  background-color: $bg-color;
+  width: $block-width - 100px;
+  &:after {
+    content: $content;
+  }
+}
