@@ -61,7 +61,7 @@ function toggleLike(event) {
 function addCard(event) {
   event.preventDefault();
 
-  const { name, link } = popupForm.elements
+  const { name, link } = popupForm.elements;
 
   const cardContainer = createCard(name.value, link.value);
 
