@@ -4,10 +4,12 @@ const popup = document.querySelector('#new-card');
 const popupClose = popup.querySelector('.popup__close');
 const popupForm = document.forms.new;
 
+const userInfoName = document.querySelector('.user-info__name');
+const userInfoAbout = document.querySelector('.user-info__job');
 const userInfoButton = document.querySelector('.user-info__button');
 const editButton = document.querySelector('.user-info__edit-button');
 
-const root = document.querySelector('.root');
+
 const createPopup = (id, title, formName, firstInputName, secondInputName, firstPlaceholder, secondPlaceholder, buttonText) => {
   const markup = `
   <div class="popup" id="${id}">
@@ -28,12 +30,27 @@ const createPopup = (id, title, formName, firstInputName, secondInputName, first
 
   return element.firstElementChild;
 };
-root.appendChild(createPopup(...editFormData));
 
-const editPopup = document.querySelector('#edit-popup');
-const editPopupSaveButton = editPopup.querySelector('.popup__button');
-const editPopupCloseButton = editPopup.querySelector('.popup__close');
-editPopupSaveButton.classList.add('popup__button_fontsize_medium'); //осталось добавить значения полям
+const createEditPopup = () => {
+  const root = document.querySelector('.root');
+  root.appendChild(createPopup(...editFormData));
+
+  const editPopup = document.querySelector('#edit-popup');
+  const editPopupSaveButton = editPopup.querySelector('.popup__button');
+  const editPopupCloseButton = editPopup.querySelector('.popup__close');
+  const editForm = document.forms.edit;
+  const [userName, about] = [...editForm.elements];
+  editPopupSaveButton.classList.add('popup__button_fontsize_medium');
+
+  userName.setAttribute('value', userInfoName.textContent);
+  about.setAttribute('value', userInfoAbout.textContent);
+
+  editButton.addEventListener('click', () => { togglePopup(editPopup) });
+  editPopupCloseButton.addEventListener('click', () => { togglePopup(editPopup) });
+
+  return editPopup;
+}
+//нужны стили для кнопки "сохранить" (валидация)
 
 const deleteCard = (event) => {
   if (event.target.classList.contains('place-card__delete-icon')) {
@@ -98,17 +115,15 @@ const addCard = (event) => {
 };
 
 addCards();
+const editPopup = createEditPopup();
 
-userInfoButton.addEventListener('click', () => {togglePopup(popup)});
-
-popupClose.addEventListener('click', () => {togglePopup(popup)});
+userInfoButton.addEventListener('click', () => { togglePopup(popup) });
+popupClose.addEventListener('click', () => { togglePopup(popup) });
 
 placesList.addEventListener('click', toggleLike);
 placesList.addEventListener('click', deleteCard);
 popupForm.addEventListener('submit', addCard);
 
-editButton.addEventListener('click', () => {togglePopup(editPopup)});
-editPopupCloseButton.addEventListener('click', () => {togglePopup(editPopup)});
 
-console.log(editPopupSaveButton);
+
 
