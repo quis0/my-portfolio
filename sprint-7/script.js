@@ -16,9 +16,9 @@ const createPopup = (id, title, formName, firstInputName, secondInputName, first
     <div class="popup__content">
       <img src="./images/close.svg" alt="" class="popup__close">
       <h3 class="popup__title">${title}</h3>
-      <form class="popup__form" name="${formName}">
-        <input type="text" name="${firstInputName}" class="popup__input popup__input_type_name" placeholder="${firstPlaceholder}">
-        <input type="text" name="${secondInputName}" class="popup__input popup__input_type_link-url"
+      <form class="popup__form" novalidate name="${formName}">
+        <input type="text" name="${firstInputName}" class="popup__input popup__input_type_name" required placeholder="${firstPlaceholder}">
+        <input type="text" name="${secondInputName}" class="popup__input popup__input_type_link-url" required
         placeholder="${secondPlaceholder}">
         <button type class="button popup__button">${buttonText}</button>
       </form>
@@ -29,6 +29,11 @@ const createPopup = (id, title, formName, firstInputName, secondInputName, first
   element.insertAdjacentHTML('afterbegin', markup);
 
   return element.firstElementChild;
+};
+
+const putFocus = (input) => {
+  input.focus();
+  input.selectionStart = input.value.length;
 };
 
 const createEditPopup = () => {
@@ -45,12 +50,35 @@ const createEditPopup = () => {
   userName.setAttribute('value', userInfoName.textContent);
   about.setAttribute('value', userInfoAbout.textContent);
 
-  editButton.addEventListener('click', () => { togglePopup(editPopup) });
+  editButton.addEventListener('click', () => {
+    togglePopup(editPopup);
+    putFocus(userName);
+  });
+
   editPopupCloseButton.addEventListener('click', () => { togglePopup(editPopup) });
+
+  editForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    userInfoName.textContent = userName.value;
+    userInfoAbout.textContent = about.value;
+    togglePopup(editPopup)
+	});
 
   return editPopup;
 }
-//нужны стили для кнопки "сохранить" (валидация)
+
+const editPopup = createEditPopup();
+
+// IIFE, input полям добавить border прозрачный (если его еще нет)
+
+//валидация url
+// function isUrlValid(userInput) {
+//     var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+//     if(res == null)
+//         return false;
+//     else
+//         return true;
+// }
 
 const deleteCard = (event) => {
   if (event.target.classList.contains('place-card__delete-icon')) {
@@ -115,7 +143,7 @@ const addCard = (event) => {
 };
 
 addCards();
-const editPopup = createEditPopup();
+
 
 userInfoButton.addEventListener('click', () => { togglePopup(popup) });
 popupClose.addEventListener('click', () => { togglePopup(popup) });
@@ -123,7 +151,5 @@ popupClose.addEventListener('click', () => { togglePopup(popup) });
 placesList.addEventListener('click', toggleLike);
 placesList.addEventListener('click', deleteCard);
 popupForm.addEventListener('submit', addCard);
-
-
 
 

@@ -32,9 +32,9 @@
       <div class="popup__content">
         <img src="./images/close.svg" alt="" class="popup__close">
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" name="new">
-          <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
-          <input type="text" name="link" class="popup__input popup__input_type_link-url"
+        <form class="popup__form" novalidate name="new">
+          <input type="text" name="name" class="popup__input popup__input_type_name" required placeholder="Название">
+          <input type="url" name="link" class="popup__input popup__input_type_link-url" required
             placeholder="Ссылка на картинку">
           <button type class="button popup__button popup__button_fontsize_big">+</button>
         </form>
