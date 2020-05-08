@@ -4,10 +4,15 @@ const popup = document.querySelector('#new-card');
 const popupClose = popup.querySelector('.popup__close');
 const popupForm = document.forms.new;
 
+const imagePopup = document.querySelector('#image-popup');
+const imagePopupPic = imagePopup.querySelector('.popup__image');
+const imagePopupClose = imagePopup.querySelector('.popup__close');
+const images = Array.from(placesList.querySelectorAll('.place-card__image'));
+
 const userInfoName = document.querySelector('.user-info__name');
 const userInfoAbout = document.querySelector('.user-info__job');
-const userInfoButton = document.querySelector('.user-info__button');
-const editButton = document.querySelector('.user-info__edit-button');
+const userInfoButton = document.querySelector('.user-info__button'); //Поиск одного и того же DOM-элемента не должен происходить дважды.
+const editButton = document.querySelector('.user-info__edit-button'); //Константы описаны в той области видимости, в которой объявлена функция, и внутри неё значения констант берутся из замыкания.
 
 
 const createPopup = (id, title, formName, firstInputName, secondInputName, firstPlaceholder, secondPlaceholder, buttonText) => {
@@ -26,6 +31,7 @@ const createPopup = (id, title, formName, firstInputName, secondInputName, first
   </div>
   `;
   const element = document.createElement('div');
+
   element.insertAdjacentHTML('afterbegin', markup);
 
   return element.firstElementChild;
@@ -36,9 +42,16 @@ const putFocus = (input) => {
   input.selectionStart = input.value.length;
 };
 
+const putToggleListenerOnClose = (button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => { togglePopup(popup) });
+};
+
+//добавить функцию, которая вешает слушатели на кнопки
 const createEditPopup = () => {
   const root = document.querySelector('.root');
-  root.appendChild(createPopup(...editFormData));
+  //Операции над DOM-элементами выполняются до их вставки в разметку. СЮДА
+  root.appendChild(createPopup(...editFormData)); //createPopup(...) заменить на константу и менять ее свойства
 
   const editPopup = document.querySelector('#edit-popup');
   const editPopupSaveButton = editPopup.querySelector('.popup__button');
@@ -47,7 +60,7 @@ const createEditPopup = () => {
   const [userName, about] = [...editForm.elements];
   editPopupSaveButton.classList.add('popup__button_fontsize_medium');
 
-  userName.setAttribute('value', userInfoName.textContent);
+  userName.setAttribute('value', userInfoName.textContent); //Операции над DOM-элементами выполняются до их вставки в разметку.
   about.setAttribute('value', userInfoAbout.textContent);
 
   editButton.addEventListener('click', () => {
@@ -55,14 +68,14 @@ const createEditPopup = () => {
     putFocus(userName);
   });
 
-  editPopupCloseButton.addEventListener('click', () => { togglePopup(editPopup) });
+  putToggleListenerOnClose(editPopupCloseButton);
 
   editForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     userInfoName.textContent = userName.value;
     userInfoAbout.textContent = about.value;
     togglePopup(editPopup)
-	});
+  });
 
   return editPopup;
 }
@@ -80,6 +93,12 @@ const editPopup = createEditPopup();
 //         return true;
 // }
 
+// const showCard = (event) => {
+//   if(event.target.classList.contains('place-card__image')) {
+//     event.classList.toggle('image_is-opened');
+//   }
+// }
+
 const deleteCard = (event) => {
   if (event.target.classList.contains('place-card__delete-icon')) {
     placesList.removeChild(event.target.closest('.place-card'));
@@ -93,6 +112,7 @@ const createCard = (name, link) => {
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('place-card__image');
   imageContainer.setAttribute('style', `background-image: url('${link}')`);
+  images.push(imageContainer);
 
   const buttonDeleteIcon = document.createElement('button');
   buttonDeleteIcon.classList.add('place-card__delete-icon');
@@ -129,6 +149,14 @@ const toggleLike = (event) => {
   }
 };
 
+const openCard = () => {
+  if (event.target.classList.contains('place-card__image')) {
+    const imageLink = event.target.style.backgroundImage;
+    imagePopupPic.src = imageLink.slice(5,-2);
+    togglePopup(imagePopup);
+  }
+}
+
 const addCard = (event) => {
   event.preventDefault();
 
@@ -144,12 +172,14 @@ const addCard = (event) => {
 
 addCards();
 
-
 userInfoButton.addEventListener('click', () => { togglePopup(popup) });
-popupClose.addEventListener('click', () => { togglePopup(popup) });
+putToggleListenerOnClose(popupClose);
+putToggleListenerOnClose(imagePopupClose);
 
-placesList.addEventListener('click', toggleLike);
 placesList.addEventListener('click', deleteCard);
+placesList.addEventListener('click', toggleLike);
+placesList.addEventListener('click', openCard);
+
 popupForm.addEventListener('submit', addCard);
 
 
