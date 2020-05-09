@@ -33,10 +33,13 @@
         <img src="./images/close.svg" alt="" class="popup__close">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" novalidate name="new">
-          <input type="text" name="name" class="popup__input popup__input_type_name" required placeholder="Название">
-          <input type="url" name="link" class="popup__input popup__input_type_link-url" required
+          <input type="text" name="name" id="name" minlength="2" maxlength="30" class="popup__input popup__input_type_name" required
+            placeholder="Название">
+          <span id="error-name" class="popup__error-message"></span>
+          <input type="url" name="link" id="link" class="popup__input popup__input_type_link-url" required
             placeholder="Ссылка на картинку">
-          <button type class="button popup__button popup__button_fontsize_big">+</button>
+          <span id="error-link" class="popup__error-message"></span>
+          <button type="submit" disabled class="button popup__button popup__button_invalid popup__button_fontsize_big">+</button>
         </form>
       </div>
     </div>

@@ -42,3 +42,9 @@ const initialCards = [
 ];
 
 const editFormData = ['edit-popup', 'Редактировать профиль', 'edit', 'username', 'about', 'Имя', 'О себе', 'Сохранить'];
+
+const errorMessages = {
+  empty: 'Это обязательное поле',
+  wrongLength: 'Должно быть от 2 до 30 символов',
+  wrongUrl: 'Здесь должна быть ссылка'
+};
