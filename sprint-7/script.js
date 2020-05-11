@@ -2,6 +2,7 @@ const placesList = document.querySelector('.places-list');
 
 const popup = document.querySelector('#new-card');
 const popupClose = popup.querySelector('.popup__close');
+const popupButton = popup.querySelector('.popup__button');
 const popupForm = document.forms.new;
 const { name, link } = popupForm.elements;
 
@@ -55,20 +56,6 @@ const resetErrors = (form) => {
   });
 };
 
-const putTogglerOnClose = (button) => {
-  const popup = button.closest('.popup');
-
-  const form = popup.querySelector('.popup__form');
-
-  button.addEventListener('click', () => {
-    if (form) {
-      resetErrors(form);
-      form.reset();
-    };
-    togglePopup(popup)
-  });
-};
-
 const setSubmitButtonState = (button, state) => {
   if (state) {
     button.removeAttribute('disabled');
@@ -79,6 +66,22 @@ const setSubmitButtonState = (button, state) => {
     button.classList.add(`popup__button_invalid`);
     button.classList.remove(`popup__button_valid`);
   }
+};
+
+
+
+const putTogglerOnClose = (button) => {
+  const popup = button.closest('.popup');
+  const form = popup.querySelector('.popup__form');
+
+  button.addEventListener('click', () => {
+    if (form) {
+      resetErrors(form);
+      if (form.id == 'new') setSubmitButtonState(popupButton, false);
+      form.reset();
+    };
+    togglePopup(popup)
+  });
 };
 
 const togglePopup = (popup) => popup.classList.toggle('popup_is-opened');
@@ -248,6 +251,8 @@ const addCard = (event) => {
   togglePopup(popup);
 
   popupForm.reset();
+  resetErrors(popupForm);
+  setSubmitButtonState(popupButton, false);
 };
 
 const handleEscapeButton = (event) => {
@@ -255,16 +260,15 @@ const handleEscapeButton = (event) => {
     const popup = document.querySelector('.popup_is-opened');
     const form = popup.querySelector('.popup__form');
 
-    if (popup) {
-      if (event.code === 'Escape') {
+    if (popup && event.code === 'Escape') {
         if (form) {
           resetErrors(form);
           form.reset();
+          if (form.id == 'new') setSubmitButtonState(popupButton, false);
         };
         togglePopup(popup);
       }
     }
-  }
 
   catch {
     return;
@@ -277,6 +281,7 @@ userInfoButton.addEventListener('click', () => {
   togglePopup(popup);
   putFocus(name);
 });
+
 putTogglerOnClose(popupClose);
 putTogglerOnClose(imagePopupClose);
 
@@ -298,13 +303,10 @@ document.addEventListener('keydown', handleEscapeButton);
  - Форма «Новое место» валидируется
  - Код разбит на небольшие функции, у функций ясные имена;
  - Код структурирован
- Можно лучше:
- - Использовать делегирование. Объеденить функции deleteCard, toggleLike, openCard.
- - Закрывать попапы на esc
  Надо исправить:
  - В работе приложения есть баг:
- 1) Открываем попап редактирования профиля
- 2) Удаляем все из инпутов
- 3) Закрываем попап
- 4) Открываем еще раз - кнопка добавления деактивирована
+ 1) Открываем попап добавления карточки
+ 2) Заполняем инпуты до активации кнопки
+ 3) Закрываем попап крестиком
+ 4) Открываем - можно добавлять карточку без названия и link
 */
