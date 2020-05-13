@@ -7,5 +7,5 @@ Some of them were based on free templates from the Internet.
   <img src="https://github.com/quis0/my-portfolio/blob/master/images/CSS3HTML5-logo.svg" alt="" height="70px">
 </p>
 <p align="center">
-  <img src="https://github.com/quis0/my-portfolio/blob/master/images/JS-logo.svg" alt="" width="62px" height="62px">
+  <img src="https://github.com/quis0/my-portfolio/blob/master/images/JS-logo.svg" alt="" width="60px" height="60px">
 </p>
