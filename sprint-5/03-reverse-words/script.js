@@ -8,15 +8,13 @@
  *
 */
 
-function reverseWords(str) {
-  return newStr = str.split(' ').reverse().join(' ');
-}
+const reverseWords = (str) => str.split(' ').reverse().join(' ');
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
 console.log(reverseWords('всегда много путей достичь цель есть')); // "есть цель достичь путей много всегда"
 console.log(reverseWords('испробовать их все должны вы')); // "вы должны все их испробовать"
 
- /*  
+ /*
  *   Принято!
  */
