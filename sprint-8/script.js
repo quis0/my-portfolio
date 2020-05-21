@@ -1,5 +1,3 @@
-(function () {
-
   const placesList = document.querySelector('.places-list');
 
   const popup = document.querySelector('#new-card');
@@ -17,70 +15,7 @@
   const userInfoAbout = document.querySelector('.user-info__job');
   const userInfoButton = document.querySelector('.user-info__button');
   const editButton = document.querySelector('.user-info__edit-button');
-
-  class Card {
-    constructor(name, link) {
-      this.name = name;
-      this.link = link;
-    }
-
-    like(event) {
-      event.target.classList.toggle('place-card__like-icon_liked');
-    }
-
-    remove(event) {
-      placesList.removeChild(event.target.closest('.place-card'));
-    }
-
-    open(event) {
-      if (event.target.classList.contains('place-card__image')) {
-        const imageLink = event.target.dataset.url;
-        imagePopupPic.src = imageLink;
-        togglePopup(imagePopup);
-      }
-    }
-
-    setEventListeners() {
-      this.buttonDeleteIcon.addEventListener('click', this.remove);
-      this.buttonLike.addEventListener('click', this.like);
-      this.imageContainer.addEventListener('click', this.open);
-    }
-
-    create() {
-      this.cardContainer = document.createElement('div');
-      this.cardContainer.classList.add('place-card');
-
-      this.imageContainer = document.createElement('div');
-      this.imageContainer.classList.add('place-card__image');
-      this.imageContainer.setAttribute('style', `background-image: url('${this.link}')`);
-      this.imageContainer.setAttribute('data-url', `${this.link}`);
-      images.push(this.imageContainer);
-
-      this.buttonDeleteIcon = document.createElement('button');
-      this.buttonDeleteIcon.classList.add('place-card__delete-icon');
-
-      const cardDescriptionContainer = document.createElement('div');
-      cardDescriptionContainer.classList.add('place-card__description');
-
-      const cardName = document.createElement('h3');
-      cardName.classList.add('place-card__name');
-      cardName.textContent = this.name;
-
-      this.buttonLike = document.createElement('button');
-      this.buttonLike.classList.add('place-card__like-icon');
-
-      this.imageContainer.appendChild(this.buttonDeleteIcon);
-      cardDescriptionContainer.appendChild(cardName);
-      cardDescriptionContainer.appendChild(this.buttonLike);
-
-      this.cardContainer.appendChild(this.imageContainer);
-      this.cardContainer.appendChild(cardDescriptionContainer);
-
-      this.setEventListeners();
-
-      return this.cardContainer;
-    }
-  }
+  let cardList = {};
 
   const createPopup = (id, title, formName, firstInputName, secondInputName, firstPlaceholder, secondPlaceholder, buttonText) => {
     const markup = `
@@ -252,18 +187,17 @@
   };
 
   const addCards = () => {
-    initialCards.forEach(({ name, link }) => placesList.appendChild(new Card(name, link).create()));
-  };
-
-  const openCard = (elem) => {
-
+    const array = [];
+    initialCards.forEach(({ name, link }) => array.push(new Card(name, link).create()));
+    cardList = new CardList(placesList, array);
+    cardList.render();
   };
 
   const addCard = (event) => {
     event.preventDefault();
     const cardContainer = new Card(name.value, link.value).create();
 
-    placesList.appendChild(cardContainer);
+    cardList.addCard(cardContainer);
 
     togglePopup(popup);
 
@@ -310,13 +244,3 @@
   editForm.addEventListener('input', handlerInputForm, true);
 
   document.addEventListener('keydown', handleEscapeButton);
-
-
-  /*
-   Что понравилось:
-   - Используется всплытие и делегирование
-   - Форма «Новое место» валидируется
-   - Код разбит на небольшие функции, у функций ясные имена;
-   - Код структурирован
-  */
-})();

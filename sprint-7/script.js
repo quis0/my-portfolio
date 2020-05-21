@@ -1,5 +1,3 @@
-(function() {
-
   const placesList = document.querySelector('.places-list');
 
   const popup = document.querySelector('#new-card');
@@ -297,13 +295,3 @@
   editForm.addEventListener('input', handlerInputForm, true);
 
   document.addEventListener('keydown', handleEscapeButton);
-
-
-  /*
-   Что понравилось:
-   - Используется всплытие и делегирование
-   - Форма «Новое место» валидируется
-   - Код разбит на небольшие функции, у функций ясные имена;
-   - Код структурирован
-  */
-})();
