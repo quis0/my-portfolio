@@ -2,18 +2,19 @@ class Popup {
   constructor(container, popup) {
     this._container = container;
     this._popup = popup;
-    this._isForm = true;
-    this._closeButton = this._popup.querySelector('.popup__close');
-    try {
-      this._submitButton = this._popup.querySelector('.popup__button');
-      if (this._submitButton == null) throw 'notForm';
-    }
-    catch {
-      this._isForm = false;
-    }
-    if (this._isForm) {
-      this._form = this._popup.querySelector('.popup__form');
-    }
+    // this._isForm = true;
+    // this._closeButton = this._popup.querySelector('.popup__close');
+    // try {
+    //   this._submitButton = this._popup.querySelector('.popup__button');
+    //   if (this._submitButton == null) throw 'notForm';
+    // }
+    // catch {
+    //   this._isForm = false;
+    // }
+    // if (this._isForm) {
+    //   this._form = this._popup.querySelector('.popup__form');
+    // }
+    //Это может пригодиться в следующих попапах, а может и не пригодиться who knows...
   }
   open() {
     this._popup.classList.toggle('popup_is-opened', true);
@@ -21,21 +22,16 @@ class Popup {
   close() {
     this._popup.classList.toggle('popup_is-opened', false);
   }
-  _setEventListeners() {
-    this._closeButton.addEventListener('click', () => {
-      if (this._isForm) {
-        resetErrors(this._form);
-        if (this._form.id == 'new') setSubmitButtonState(this._submitButton, false); //убрать функции
-        this._form.reset();
-      };
-      this.close();
-    }); //аналог putTogglerOnClose
+  getForm() {
+    if (this._isForm) {
+      return this._form;
+    }
+    return undefined;
   }
   getPopup() {
     return this._popup;
   }
   create() {
-    this._setEventListeners()
     this._container.appendChild(this._popup);
   }
 }
@@ -133,6 +129,7 @@ const createEditPopup = () => {
   const popup = createPopup(...editFormData);
 
   const editPopupSaveButton = popup.querySelector('.popup__button');
+  const editPopupCloseButton = popup.querySelector('.popup__close');
   const editForm = popup.querySelector('.popup__form');
   const [userName, about] = [...editForm.elements];
   editPopupSaveButton.classList.add('popup__button_fontsize_medium');
@@ -145,6 +142,15 @@ const createEditPopup = () => {
     userName.setAttribute('value', userInfoName.textContent);
     about.setAttribute('value', userInfoAbout.textContent);
     putFocus(userName);
+  });
+
+  editPopupCloseButton.addEventListener('click', () => {
+    if (editForm) {
+      resetErrors(editForm);
+      if (editForm.id == 'new') setSubmitButtonState(popupButton, false);
+      editForm.reset();
+    };
+    popupShell.close();
   });
 
   editForm.addEventListener('submit', (evt) => {
