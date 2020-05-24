@@ -1,7 +1,7 @@
 class Card {
   constructor(name, link) {
-    this.name = name;
-    this.link = link;
+    this._name = name;
+    this._link = link;
   }
 
   like(event) {
@@ -9,7 +9,7 @@ class Card {
   }
 
   remove(event) {
-    placesList.removeChild(event.target.closest('.place-card'));
+    event.target.closest('.place-card').remove();
   }
 
   open(event) {
@@ -20,30 +20,30 @@ class Card {
     }
   }
 
-  setEventListeners() {
-    this.buttonDeleteIcon.addEventListener('click', this.remove);
-    this.buttonLike.addEventListener('click', this.like);
-    this.imageContainer.addEventListener('click', this.open);
+  _setEventListeners() {
+    this._buttonDeleteIcon.addEventListener('click', this.remove);
+    this._buttonLike.addEventListener('click', this.like);
+    this._imageContainer.addEventListener('click', this.open);
   }
 
-  removeEventListeners() {
-    this.buttonDeleteIcon.removeEventListener('click', this.remove);
-    this.buttonLike.removeEventListener('click', this.like);
-    this.imageContainer.removeEventListener('click', this.open);
+  _removeEventListeners() {
+    this._buttonDeleteIcon.removeEventListener('click', this.remove);
+    this._buttonLike.removeEventListener('click', this.like);
+    this._imageContainer.removeEventListener('click', this.open);
   }
 
   create() {
-    this.cardContainer = document.createElement('div');
-    this.cardContainer.classList.add('place-card');
+    this._cardContainer = document.createElement('div');
+    this._cardContainer.classList.add('place-card');
 
-    this.imageContainer = document.createElement('div');
-    this.imageContainer.classList.add('place-card__image');
-    this.imageContainer.setAttribute('style', `background-image: url('${this.link}')`);
-    this.imageContainer.setAttribute('data-url', `${this.link}`);
-    images.push(this.imageContainer);
+    this._imageContainer = document.createElement('div');
+    this._imageContainer.classList.add('place-card__image');
+    this._imageContainer.setAttribute('style', `background-image: url('${this._link}')`);
+    this._imageContainer.setAttribute('data-url', `${this._link}`);
+    images.push(this._imageContainer);
 
-    this.buttonDeleteIcon = document.createElement('button');
-    this.buttonDeleteIcon.classList.add('place-card__delete-icon');
+    this._buttonDeleteIcon = document.createElement('button');
+    this._buttonDeleteIcon.classList.add('place-card__delete-icon');
 
 
     const cardDescriptionContainer = document.createElement('div');
@@ -51,21 +51,21 @@ class Card {
 
     const cardName = document.createElement('h3');
     cardName.classList.add('place-card__name');
-    cardName.textContent = this.name;
+    cardName.textContent = this._name;
 
-    this.buttonLike = document.createElement('button');
-    this.buttonLike.classList.add('place-card__like-icon');
+    this._buttonLike = document.createElement('button');
+    this._buttonLike.classList.add('place-card__like-icon');
 
-    this.imageContainer.appendChild(this.buttonDeleteIcon);
+    this._imageContainer.appendChild(this._buttonDeleteIcon);
     cardDescriptionContainer.appendChild(cardName);
-    cardDescriptionContainer.appendChild(this.buttonLike);
+    cardDescriptionContainer.appendChild(this._buttonLike);
 
-    this.cardContainer.appendChild(this.imageContainer);
-    this.cardContainer.appendChild(cardDescriptionContainer);
+    this._cardContainer.appendChild(this._imageContainer);
+    this._cardContainer.appendChild(cardDescriptionContainer);
 
-    this.setEventListeners();
-    this.buttonDeleteIcon.addEventListener('click', () => this.removeEventListeners());
+    this._setEventListeners();
+    this._buttonDeleteIcon.addEventListener('click', () => this._removeEventListeners());
 
-    return this.cardContainer;
+    return this._cardContainer;
   }
 };
