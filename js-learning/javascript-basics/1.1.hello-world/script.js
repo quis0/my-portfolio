@@ -1,2 +1,0 @@
-alert ("Я JavaScript!");
-
