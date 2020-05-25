@@ -26,7 +26,13 @@ class Card {
   _setEventListeners() {
     this._buttonDeleteIcon.addEventListener('click', this.remove);
     this._buttonLike.addEventListener('click', this.like);
-    this._imageContainer.addEventListener('click', () => this.open());
+    this._imageContainer.addEventListener('click', this.open.bind(this));
+  }
+
+  _removeEventListeners() {
+    this._buttonDeleteIcon.removeEventListener('click', this.remove);
+    this._buttonLike.removeEventListener('click', this.like);
+    this._imageContainer.removeEventListener('click', this.open);
   }
 
   create() {
@@ -61,6 +67,7 @@ class Card {
     this._cardContainer.appendChild(cardDescriptionContainer);
 
     this._setEventListeners();
+    this._buttonDeleteIcon.addEventListener('click', () => this._removeEventListeners());
 
     return this._cardContainer;
   }

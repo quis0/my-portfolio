@@ -22,13 +22,13 @@ class Popup {
   close() {
     this._popup.classList.toggle('popup_is-opened', false);
   }
-  // get form() {
+  // getForm() {
   //   if (this._isForm) {
   //     return this._form;
   //   }
   //   return undefined;
   // }
-  get popup() {
+  getPopup() {
     return this._popup;
   }
   create() {

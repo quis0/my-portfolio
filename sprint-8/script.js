@@ -1,3 +1,15 @@
+class UserInfo {
+  constructor() {
+
+  }
+  setUserInfo() {
+    //чтобы обновлять данные внутри экземпляра класса
+  }
+  updateUserInfo() {
+    //чтобы отображать эти данные на странице
+  }
+}
+
 const placesList = document.querySelector('.places-list');
 
 const popup = document.querySelector('#new-card');
@@ -89,7 +101,7 @@ const createEditPopup = () => {
   editButton.addEventListener('click', () => {
     popupShell.open();
     setSubmitButtonState(editPopupSaveButton, true);
-    userName.setAttribute('value', userInfoName.textContent);
+    userName.setAttribute('value', userInfoName.textContent); //можно бахнуть метод getUserInfo объекту UserInfo
     about.setAttribute('value', userInfoAbout.textContent);
     putFocus(userName);
   });
@@ -102,14 +114,14 @@ const createEditPopup = () => {
 
   editForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    userInfoName.textContent = userName.value;
+    userInfoName.textContent = userName.value; // вызов методов setUserInfo и updateUserInfo объекта UserInfo
     userInfoAbout.textContent = about.value;
     popupShell.close();
   }); //(что делать с глобальными переменными типа userInfoName, userInfoAbout)
 
   popupShell.create();
 
-  return popupShell.popup;
+  return popupShell.getPopup();
 };
 
 const editPopup = createEditPopup();
