@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "canvas-chart": "~1.3.0"
+  }
+}
