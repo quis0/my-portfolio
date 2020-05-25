@@ -1,41 +1,3 @@
-class Popup {
-  constructor(container, popup) {
-    this._container = container;
-    this._popup = popup;
-    // this._isForm = true;
-    // this._closeButton = this._popup.querySelector('.popup__close');
-    // try {
-    //   this._submitButton = this._popup.querySelector('.popup__button');
-    //   if (this._submitButton == null) throw 'notForm';
-    // }
-    // catch {
-    //   this._isForm = false;
-    // }
-    // if (this._isForm) {
-    //   this._form = this._popup.querySelector('.popup__form');
-    // }
-    //Это может пригодиться в следующих попапах, а может и не пригодиться who knows...
-  }
-  open() {
-    this._popup.classList.toggle('popup_is-opened', true);
-  }
-  close() {
-    this._popup.classList.toggle('popup_is-opened', false);
-  }
-  getForm() {
-    if (this._isForm) {
-      return this._form;
-    }
-    return undefined;
-  }
-  getPopup() {
-    return this._popup;
-  }
-  create() {
-    this._container.appendChild(this._popup);
-  }
-}
-
 const placesList = document.querySelector('.places-list');
 
 const popup = document.querySelector('#new-card');
@@ -43,11 +5,13 @@ const popupClose = popup.querySelector('.popup__close');
 const popupButton = popup.querySelector('.popup__button');
 const popupForm = document.forms.new;
 const { name, link } = popupForm.elements;
+const popupShell = new Popup(popup);
 
 const imagePopup = document.querySelector('#image-popup');
 const imagePopupPic = imagePopup.querySelector('.popup__image');
 const imagePopupClose = imagePopup.querySelector('.popup__close');
 const images = [...placesList.querySelectorAll('.place-card__image')];
+const imagePopupShell = new Popup(imagePopup);
 
 const userInfoName = document.querySelector('.user-info__name');
 const userInfoAbout = document.querySelector('.user-info__job');
@@ -108,20 +72,6 @@ const setSubmitButtonState = (button, state) => {
   }
 };
 
-const putTogglerOnClose = (button) => {
-  const popup = button.closest('.popup');
-  const form = popup.querySelector('.popup__form');
-
-  button.addEventListener('click', () => {
-    if (form) {
-      resetErrors(form);
-      if (form.id == 'new') setSubmitButtonState(popupButton, false);
-      form.reset();
-    };
-    togglePopup(popup)
-  });
-};
-
 const togglePopup = (popup) => popup.classList.toggle('popup_is-opened');
 
 const createEditPopup = () => {
@@ -134,7 +84,7 @@ const createEditPopup = () => {
   const [userName, about] = [...editForm.elements];
   editPopupSaveButton.classList.add('popup__button_fontsize_medium');
 
-  const popupShell = new Popup(root, popup);
+  const popupShell = new Popup(popup, root);
 
   editButton.addEventListener('click', () => {
     popupShell.open();
@@ -145,11 +95,8 @@ const createEditPopup = () => {
   });
 
   editPopupCloseButton.addEventListener('click', () => {
-    if (editForm) {
-      resetErrors(editForm);
-      if (editForm.id == 'new') setSubmitButtonState(popupButton, false);
-      editForm.reset();
-    };
+    resetErrors(editForm);
+    editForm.reset();
     popupShell.close();
   });
 
@@ -158,11 +105,11 @@ const createEditPopup = () => {
     userInfoName.textContent = userName.value;
     userInfoAbout.textContent = about.value;
     popupShell.close();
-  }); //как-то перенести в класс(что делать с глобальными переменными типа userInfoName, userInfoAbout)
+  }); //(что делать с глобальными переменными типа userInfoName, userInfoAbout)
 
   popupShell.create();
 
-  return popupShell.getPopup;
+  return popupShell.popup;
 };
 
 const editPopup = createEditPopup();
@@ -237,18 +184,18 @@ const checkValidity = (evt) => {
 
 const addCards = () => {
   const array = [];
-  initialCards.forEach(({ name, link }) => array.push(new Card(name, link).create()));
+  initialCards.forEach(({ name, link }) => array.push(new Card(name, link, imagePopupShell, images, imagePopupPic).create()));
   cardList = new CardList(placesList, array);
   cardList.render();
 };
 
 const addCard = (event) => {
   event.preventDefault();
-  const cardContainer = new Card(name.value, link.value).create();
+  const cardContainer = new Card(name.value, link.value, imagePopupShell, images, imagePopupPic).create();
 
   cardList.addCard(cardContainer);
 
-  togglePopup(popup);
+  popupShell.close();
 
   popupForm.reset();
   resetErrors(popupForm);
@@ -278,12 +225,20 @@ const handleEscapeButton = (event) => {
 addCards();
 
 userInfoButton.addEventListener('click', () => {
-  togglePopup(popup);
+  popupShell.open();
   putFocus(name);
 });
 
-putTogglerOnClose(popupClose);
-putTogglerOnClose(imagePopupClose);
+popupClose.addEventListener('click', () => {
+  resetErrors(popupForm);
+  setSubmitButtonState(popupButton, false);
+  popupForm.reset();
+  popupShell.close();
+});
+
+imagePopupClose.addEventListener('click', () => {
+  imagePopupShell.close();
+});
 
 popupForm.addEventListener('submit', checkValidity);
 popupForm.addEventListener('submit', addCard);
@@ -293,5 +248,3 @@ editForm.addEventListener('submit', checkValidity);
 editForm.addEventListener('input', handlerInputForm, true);
 
 document.addEventListener('keydown', handleEscapeButton);
-
-//Создать несколько попап классов, наследующихся от попапа картинки

@@ -1,7 +1,10 @@
 class Card {
-  constructor(name, link) {
+  constructor(name, link, popup, imagesArray, popupImage) {
     this._name = name;
     this._link = link;
+    this._popup = popup;
+    this._imagesArray = imagesArray;
+    this._popupImage = popupImage;
   }
 
   like(event) {
@@ -12,24 +15,18 @@ class Card {
     event.target.closest('.place-card').remove();
   }
 
-  open(event) {
+  open() {
     if (event.target.classList.contains('place-card__image')) {
-      const imageLink = event.target.dataset.url;
-      imagePopupPic.src = imageLink;
-      togglePopup(imagePopup);
+      this._imageLink = event.target.dataset.url;
+      this._popupImage.src = this._imageLink;
+      this._popup.open();
     }
   }
 
   _setEventListeners() {
     this._buttonDeleteIcon.addEventListener('click', this.remove);
     this._buttonLike.addEventListener('click', this.like);
-    this._imageContainer.addEventListener('click', this.open);
-  }
-
-  _removeEventListeners() {
-    this._buttonDeleteIcon.removeEventListener('click', this.remove);
-    this._buttonLike.removeEventListener('click', this.like);
-    this._imageContainer.removeEventListener('click', this.open);
+    this._imageContainer.addEventListener('click', () => this.open());
   }
 
   create() {
@@ -40,7 +37,7 @@ class Card {
     this._imageContainer.classList.add('place-card__image');
     this._imageContainer.setAttribute('style', `background-image: url('${this._link}')`);
     this._imageContainer.setAttribute('data-url', `${this._link}`);
-    images.push(this._imageContainer);
+    this._imagesArray.push(this._imageContainer);
 
     this._buttonDeleteIcon = document.createElement('button');
     this._buttonDeleteIcon.classList.add('place-card__delete-icon');
@@ -64,7 +61,6 @@ class Card {
     this._cardContainer.appendChild(cardDescriptionContainer);
 
     this._setEventListeners();
-    this._buttonDeleteIcon.addEventListener('click', () => this._removeEventListeners());
 
     return this._cardContainer;
   }
