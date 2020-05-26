@@ -1,10 +1,11 @@
 class Card {
-  constructor(name, link, popup, imagesArray, popupImage) {
+  constructor(name, link, openImage, imagesArray, popupImage) {
     this._name = name;
     this._link = link;
-    this._popup = popup;
+    this._openImage = openImage;
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;
+    this.open = this.open.bind(this);
   }
 
   like(event) {
@@ -19,14 +20,14 @@ class Card {
     if (event.target.classList.contains('place-card__image')) {
       this._imageLink = event.target.dataset.url;
       this._popupImage.src = this._imageLink;
-      this._popup.open();
+      this._openImage();
     }
   }
 
   _setEventListeners() {
     this._buttonDeleteIcon.addEventListener('click', this.remove);
     this._buttonLike.addEventListener('click', this.like);
-    this._imageContainer.addEventListener('click', this.open.bind(this));
+    this._imageContainer.addEventListener('click', this.open);
   }
 
   _removeEventListeners() {
@@ -47,7 +48,6 @@ class Card {
 
     this._buttonDeleteIcon = document.createElement('button');
     this._buttonDeleteIcon.classList.add('place-card__delete-icon');
-
 
     const cardDescriptionContainer = document.createElement('div');
     cardDescriptionContainer.classList.add('place-card__description');
