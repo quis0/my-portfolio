@@ -5,7 +5,7 @@
     * Like function for every card
     * Delete function for every card
 2. Sprint-7 functions:
-    * Popup for editing user info.
+    * Popup for editing user info
     * Popup for viewing images
     * Form validation for all forms
 ### What's new?
