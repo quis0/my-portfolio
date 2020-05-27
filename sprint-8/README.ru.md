@@ -8,14 +8,14 @@
     * Всплывающее окно для редактирования информации о пользователе
     * Всплывающее окно для просмотра изображений
     * Form validation for all forms
-### What's new?
-  * Total refactoring using **ES6 Classes** 
-### Project tech stack
+### Что нового?
+  * Полный рефакторинг проекта, используя **ES6 Classes** 
+### Стек технологий, используемых в проекте
 1. HTML 5
 2. CSS 3
 3. JavaScript (ES6)
 
-#### Try it: www.mesto-service.surge.sh
+#### Посмотреть сайт: www.mesto-service.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
