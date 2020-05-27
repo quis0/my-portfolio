@@ -10,7 +10,7 @@
     * Form validation for all forms
 ### What's new?
   * Total refactoring using **ES6 Classes** 
-### Project tech stack
+### Project tech stack:
 1. HTML 5
 2. CSS 3
 3. JavaScript (ES6)
