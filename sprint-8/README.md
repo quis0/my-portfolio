@@ -8,7 +8,9 @@
     * Popup for editing user info
     * Popup for viewing images
     * Form validation for all forms
-    * Escape button close any popup
+    * additionally:
+      * Escape button close any popup
+      * Focus is set on the first input field for all popups with forms
 ### What's new?
   * Total refactoring using **ES6 Classes** 
 ### Project tech stack:
