@@ -16,6 +16,7 @@
 3. JavaScript (ES6)
 
 #### Try it: www.mesto-service.surge.sh
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
   <img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-7-8-example.gif" width="90%" alt="" >
