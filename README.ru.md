@@ -3,10 +3,11 @@
 
 В этом репозитории вы можете посмотреть мои работы. Они были сделаны на курсах от **Яндекс.Практикума** и по бесплатным макетам из интернета.
 
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 * Лендинг: [статичный](../../tree/master/sprint-2), [адаптивный](../../tree/master/sprint-4)
 * [Практика JavaScript (14 задач)](../../tree/master/sprint-5)
 * [Интерактивный сервис Mesto](../../tree/master/sprint-8)
+
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
   <a href="https://github.com/quis0/my-portfolio/tree/master/sprint-4">
