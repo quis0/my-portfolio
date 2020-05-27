@@ -1,4 +1,4 @@
-## Functionality: 
+### Functionality: 
 1. Sprint-6 functions:
     * 10 initial cards on page load
     * Popup for adding cards
