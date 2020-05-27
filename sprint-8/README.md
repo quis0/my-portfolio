@@ -4,11 +4,14 @@
     * Popup for adding cards
     * Like function for every card
     * Delete function for every card
+    * Additionally:
+      * Fixed like button size
 2. Sprint-7 functions:
     * Popup for editing user info
     * Popup for viewing images
     * Form validation for all forms
     * Additionally:
+      * Removed like button outline
       * Escape button close any popup
       * Focus is set on the first input field for all popups with forms
 ### What's new?
