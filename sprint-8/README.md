@@ -14,7 +14,6 @@
 1. HTML 5
 2. CSS 3
 3. JavaScript (ES6)
-4. BEM methodology
 
 #### Try it: www.mesto-service.surge.sh
 
