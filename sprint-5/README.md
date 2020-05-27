@@ -19,3 +19,5 @@
   12. CountZeros. Write a function ```countZeros(n)``` that accepts a natural number n as input. The function must return the total number of zeros contained in all numbers from 1 to n inclusive.
   13. SumOfTwo. Write the ```sumOfTwo(arr, num)``` function. Its arguments are an array of integers ```arr``` and an integer ```num```. The function should return ```true``` if the passed array contains any two numbers whose sum is equal to ```num```. If there is no such pair of numbers, the function must return ```false```.
   14. Primes. Write the function ```primes(n)```. Its only argument is the integer ```n```. The function should return an array of primes from 2 to n.
+  
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
