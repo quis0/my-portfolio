@@ -1,26 +1,26 @@
-### Functionality: 
-1. Sprint-6 functions:
-    * 10 initial cards on page load
-    * Popup for adding cards
-    * Like function for every card
-    * Delete function for every card
-    * Additionally:
-      * Fixed like button size
+### Функциональность: 
+1. Функции из sprint-6:
+    * 10 карточек, загружающихся при открытии страницы
+    * Всплывающее окно для добавления новых карточек
+    * Функция лайка для каждой карточки
+    * Функция удаления карточки
+    * Дополнительно:
+      * Исправлен размер кнопок лайка
     
-### What's new?
-   * Popup for editing user info
-   * Popup for viewing images
-   * Form validation for all forms
-   * Additionally:
-     * Removed like button outline
-     * Escape button close any popup
-     * Focus is set on the first input field for all popups with forms
-### Project tech stack:
+### Что нового?
+   * Всплывающее окно для редактирования информации о пользователе
+   * Всплывающее окно для просмотра изображений
+   * Валидация всех форм
+   * Дополнительно:
+      * Убран контур у кнопки лайка при нажатии
+      * Клавиша escape закрывает любое всплывающее окно
+      * Настроен фокус на первое поле ввода для всех всплывающих окон с формами для ввода
+### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
 3. JavaScript (ES6)
 
-#### Latest version of this project: [sprint-8](../sprint-8)
+#### Последняя версия этого проекта: [sprint-8](../sprint-8)
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
