@@ -8,7 +8,7 @@
     * Popup for editing user info
     * Popup for viewing images
     * Form validation for all forms
-    * additionally:
+    * Additionally:
       * Escape button close any popup
       * Focus is set on the first input field for all popups with forms
 ### What's new?
