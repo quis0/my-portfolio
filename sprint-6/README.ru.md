@@ -1,17 +1,17 @@
-### Functionality: 
-* 10 initial cards on page load
-* Popup for adding cards
-* Like function for every card
-* Delete function for every card
-* Additionally:
-  * Fixed like button size
+### Функциональность: 
+* 10 карточек, загружающихся при открытии страницы
+* Всплывающее окно для добавления новых карточек
+* Функция лайка для каждой карточки
+* Функция удаления карточки
+* Дополнительно:
+  * Исправлен размер кнопок лайка
     
-### Project tech stack:
+### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
 3. JavaScript (ES6)
 
-#### Latest version of this project: [sprint-8](../sprint-8)
+#### Последняя версия этого проекта: [sprint-8](../sprint-8)
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
