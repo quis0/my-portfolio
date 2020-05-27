@@ -4,10 +4,11 @@ Hello there! My name is **Grigory Zotkevich** and I am a junior frontend develop
 In this repository you can find my works. Some of them were made on online courses from **Yandex.Praktikum**.
 Some of them were based on free templates from the Internet.
 
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 * Landing page: [static](../../tree/master/sprint-2), [adaptive](../../tree/master/sprint-4)
 * [JavaScript training (14 tasks)](../../tree/master/sprint-5)
 * [Interactive service Mesto](../../tree/master/sprint-8)
+
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
   <a href="https://github.com/quis0/my-portfolio/tree/master/sprint-4">
