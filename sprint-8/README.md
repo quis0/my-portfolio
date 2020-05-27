@@ -8,6 +8,7 @@
     * Popup for editing user info
     * Popup for viewing images
     * Form validation for all forms
+    * Escape button close any popup
 ### What's new?
   * Total refactoring using **ES6 Classes** 
 ### Project tech stack:
