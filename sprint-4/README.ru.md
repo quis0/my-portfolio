@@ -1,14 +1,14 @@
-### Functionality: 
+### Функциональность: 
 1. Sprint-3:
-    * Static landing page based on the layout from Figma
-    * Grid and flex containers
-    * Custom fonts
-    * BEM file structure
-    * Image optimization
-### What's new?
-  * Landing page now adaptive
-### Project tech stack:
+    * Статичный лендинг, сделаный по макету из Figma
+    * Grid и flex контейнеры
+    * Пользовательские шрифты
+    * Файловая структура БЭМ 
+    * Оптимизация изображений
+### Что нового?
+  * Лендинг теперь адаптивный
+### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
-### Try it: www.adaptive-landing-page.surge.sh
+### Посмотреть сайт: www.adaptive-landing-page.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
