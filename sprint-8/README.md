@@ -21,7 +21,7 @@
 2. CSS 3
 3. JavaScript (ES6)
 
-#### Try it: www.mesto-service.surge.sh
+#### Try it: 
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
