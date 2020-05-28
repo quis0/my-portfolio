@@ -1,5 +1,5 @@
 ### Functionality: 
-* Static landing page based on the detailed guide (this one: [sprint-1-brief](../sprint-1/sprint-1-brief.pdf)) 
+* Static landing page based on the detailed guide (this one: [sprint-1-brief](sprint-1-brief.pdf)) 
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
