@@ -1,14 +1,12 @@
 ### Functionality: 
-1. Sprint-3 functions:
-    * Static landing page
+1. Sprint-3:
+    * Static landing page based on the layout from Figma
     * Grid and flex containers
     * Custom fonts
     * BEM file structure
-    * Additionally:
-      * Lorem
+    * Image optimization
 ### What's new?
   * Landing page now adaptive
-  * Lorem
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
