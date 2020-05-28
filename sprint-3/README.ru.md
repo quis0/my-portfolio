@@ -1,10 +1,10 @@
-### Functionality: 
-* Static landing page based on the layout from Figma
-* Grid and flex containers
-* Custom fonts
-* BEM file structure
-* Image optimization
-### Project tech stack:
+### Функциональность: 
+* Статичный лендинг, сделаный по макету из Figma
+* Grid и flex контейнеры
+* Пользовательские шрифты
+* Файловая структура БЭМ 
+* Оптимизация изображений
+### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
 #### Последняя версия этого проекта: [sprint-4](../sprint-4)
