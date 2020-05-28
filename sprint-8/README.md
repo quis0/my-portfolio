@@ -15,7 +15,8 @@
       * Escape button close any popup
       * Focus is set on the first input field for all popups with forms
 ### What's new?
-  * Total refactoring using **ES6 Classes** 
+  * Total refactoring using **ES6 Classes**
+  * Fixed bug when long card names do not fit in the container
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
