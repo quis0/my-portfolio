@@ -1,10 +1,10 @@
 ### Functionality: 
 1. Sprint-1:
-    * Static landing page
+    * Static landing page based on the detailed guide (this one: [sprint-1-brief](../sprint-1/sprint-1-brief.pdf)) 
 ### What's new?
   * Animations
   * Iframe
-  * New design where some elements placed between two blocks
+  * New design where some elements placed between two blocks (you can check it in the brief: [sprint-2-brief](sprint-2-brief.pdf))
   * Hover style for all links
   * Additionally:
       * Custom fonts
