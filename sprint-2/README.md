@@ -6,7 +6,9 @@
     * BEM file structure
     * Image optimization
 ### What's new?
-  * Landing page now adaptive
+  * Animations
+  * Iframe
+  * New design where some elements placed between two blocks
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
