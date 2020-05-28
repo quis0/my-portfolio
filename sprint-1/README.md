@@ -3,7 +3,5 @@
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
-### Try it: www.static-landing-page.surge.sh
+#### Latest version of this project: [sprint-2](../sprint-2)
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
-
-<img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-2-example.gif" alt="" >
