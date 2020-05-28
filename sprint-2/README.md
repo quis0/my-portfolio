@@ -1,14 +1,15 @@
 ### Functionality: 
 1. Sprint-1:
-    * Static landing page based on the layout from Figma
-    * Grid and flex containers
-    * Custom fonts
-    * BEM file structure
-    * Image optimization
+    * Static landing page
 ### What's new?
   * Animations
   * Iframe
   * New design where some elements placed between two blocks
+  * Hover style for all links
+  * Additionally:
+      * Custom fonts
+      * Some blocks were moved from flex to grid 
+
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
