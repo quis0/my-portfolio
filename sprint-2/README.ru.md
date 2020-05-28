@@ -10,10 +10,10 @@
       * Пользовательские шрифты
       * Некоторые блоки были переверстаны с flex на grid
 
-### Project tech stack:
+### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
-### Try it: www.static-landing-page.surge.sh
+### Посмотреть сайт: www.static-landing-page.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-2-example.gif" alt="" >
