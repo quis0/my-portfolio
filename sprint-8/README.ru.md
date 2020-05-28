@@ -22,7 +22,7 @@
 2. CSS 3
 3. JavaScript (ES6)
 
-#### Посмотреть сайт: www.mesto-service.surge.sh
+### Посмотреть сайт: www.mesto-service.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
