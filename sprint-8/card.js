@@ -6,9 +6,10 @@ class Card {
 http://www.webpupil.ru/javascript_pract_view.php?id=7
 Передача объекта и переменной в функцию в Javascript
 */
-  constructor(name, link, openImage, imagesArray, popupImage) {
-    this._name = name;
-    this._link = link;
+  constructor(obj, openImage, imagesArray, popupImage) {
+    this._name = obj.name;
+    this._link = obj.link;
+    console.log(obj.name);
     this._openImage = openImage;
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;

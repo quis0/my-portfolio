@@ -9,7 +9,7 @@ class CardList {
   }
   render(openImage, images, imagePopupPic) {
     this._array.forEach((elem) => {
-      const card = this._createCard(elem.name, elem.link, openImage, images, imagePopupPic);
+      const card = this._createCard(elem, openImage, images, imagePopupPic);
 
       this.addCard(card);
     })

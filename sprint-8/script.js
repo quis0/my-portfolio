@@ -4,7 +4,9 @@
   const popup = document.querySelector('#new-card');
   const popupClose = popup.querySelector('.popup__close');
   const popupForm = document.forms.new;
+
   const { name, link } = popupForm.elements;
+
   const popupShell = new Popup(popup);
   popupShell.setEventListeners();
 
@@ -125,8 +127,8 @@
   Поэтому  cardList нужно обозначить как const cardList и не оборачивать код в IIFE-функцию addCards, инструкция new CardList(placesList, array)
   и так выполняется сразу. */
 
-  function createCard(name, link, openImage, images, imagePopupPic) {
-    const card = new Card(name, link, openImage, images, imagePopupPic);
+  function createCard(object, openImage, images, imagePopupPic) {
+    const card = new Card(object, openImage, images, imagePopupPic);
     return card.create();
   };
 
@@ -158,7 +160,11 @@
   popupFormValidator.setEventListeners();
   popupForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const cardContainer = new Card(name.value, link.value, openImage, images, imagePopupPic).create();
+    const popupFormElements = {
+      name: name.value,
+      link: link.value
+    };
+    const cardContainer = new Card(popupFormElements, openImage, images, imagePopupPic).create();
     cardList.addCard(cardContainer);
 
     popupShell.close();
