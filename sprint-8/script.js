@@ -5,7 +5,6 @@
   const popupClose = popup.querySelector('.popup__close');
   const popupForm = document.forms.new;
   const { name, link } = popupForm.elements;
-
   const popupShell = new Popup(popup);
   popupShell.setEventListeners();
 
@@ -126,15 +125,15 @@
   Поэтому  cardList нужно обозначить как const cardList и не оборачивать код в IIFE-функцию addCards, инструкция new CardList(placesList, array)
   и так выполняется сразу. */
 
-  function createCard(object, openImage, images, imagePopupPic) {
-    const card = new Card(object, openImage, images, imagePopupPic);
+  function createCard(name, link, openImage, images, imagePopupPic) {
+    const card = new Card(name, link, openImage, images, imagePopupPic);
     return card.create();
   };
 
   const cardList = new CardList(placesList, initialCards, createCard);
   cardList.render(openImage, images, imagePopupPic);
 
-  /*REVIEW. Надо исправить. В файле-точке входа в проект, задача которого инициализировать весь проект, запускать его на выполнение,
+  /*+REVIEW. Надо исправить. В файле-точке входа в проект, задача которого инициализировать весь проект, запускать его на выполнение,
   не создают новые именованные функции. Поэтому присваивать стрелочную функцию const addCard не надо. Надо эту безымянную стрелочную функцию
   просто добавлять на форму в качестве слушателя сабмита, как Вы это делаете для формы профиля. */
 
