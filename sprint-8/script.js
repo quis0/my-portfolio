@@ -5,10 +5,11 @@
   const popupClose = popup.querySelector('.popup__close');
   const popupForm = document.forms.new;
   const { name, link } = popupForm.elements;
+
   const popupShell = new Popup(popup);
   popupShell.setEventListeners();
-  const popupFormValidator = new FormValidator(popupShell.getForm());
 
+  const popupFormValidator = new FormValidator(popupShell.getForm());
   const imagePopup = document.querySelector('#image-popup');
   const imagePopupPic = imagePopup.querySelector('.popup__image');
   const imagePopupClose = imagePopup.querySelector('.popup__close');
@@ -23,31 +24,15 @@
   const userInfoButton = document.querySelector('.user-info__button');
   const editButton = document.querySelector('.user-info__edit-button');
 
-  let cardList = {};
+  /*+REVIEW. Надо исправить. Не надо объявлять let cardList (см. комментарий ниже) */
 
-  const createPopup = (id, title, formName, firstInputName, secondInputName, firstPlaceholder, secondPlaceholder, buttonText) => {
-    const markup = `
-  <div class="popup" id="${id}">
-    <div class="popup__content">
-      <img src="./images/close.svg" alt="" class="popup__close">
-      <h3 class="popup__title">${title}</h3>
-      <form class="popup__form" novalidate name="${formName}">
-        <input type="text" name="${firstInputName}" id="${firstInputName}" minlength="2" maxlength="30" class="popup__input popup__input_type_name" required placeholder="${firstPlaceholder}">
-        <span id="error-${firstInputName}" class="popup__error-message"></span>
-        <input type="text" name="${secondInputName}" id="${secondInputName}" minlength="2" maxlength="30" class="popup__input popup__input_type_link-url" required
-        placeholder="${secondPlaceholder}">
-        <span id="error-${secondInputName}" class="popup__error-message"></span>
-        <button type class="button popup__button popup__button_valid">${buttonText}</button>
-      </form>
-    </div>
-  </div>
-  `;
-    const element = document.createElement('div');
 
-    element.insertAdjacentHTML('afterbegin', markup);
-
-    return element.firstElementChild;
-  };
+  /*+REVIEW. Надо исправить. Вы создаёте две формы из одной размётки, хотя нигде не сказано, что эти формы имеют одну структуру
+  и эта структура не будет изменяться у каждой формы независимо друг от друга, или не будут появляться ещё формы с другой структурой.
+  Клонировать размётку имеет смысл, если известно заранее, что у многих объектов будет одинаковая структура и с такими объектами
+  происходит работа в цикле, где они и клонируются.
+  Поэтому для двух имеющихся форм  нужно сделать размётку в index.html и работать с ней. Сделайте это, пожалуйста.
+  */
 
   const putFocus = (input) => {
     input.focus();
@@ -55,8 +40,7 @@
   };
 
   const createEditPopupShell = () => {
-    const root = document.querySelector('.root');
-    const popup = createPopup(...editFormData);
+    const popup = document.querySelector('#edit-popup');
 
     const editPopupSaveButton = popup.querySelector('.popup__button');
     const editPopupCloseButton = popup.querySelector('.popup__close');
@@ -64,7 +48,7 @@
     const [userName, about] = [...editForm.elements];
     editPopupSaveButton.classList.add('popup__button_fontsize_medium');
 
-    const editPopupShell = new Popup(popup, root);
+    const editPopupShell = new Popup(popup);
     editPopupShell.setEventListeners();
 
     editButton.addEventListener('click', () => {
@@ -88,33 +72,71 @@
       editPopupShell.close();
     });
 
-    editPopupShell.create();
-
     return editPopupShell;
   };
 
   const editPopupShell = createEditPopupShell();
   const editPopupFormValidator = new FormValidator(editPopupShell.getForm());
 
-  (function addCards() {
-    const array = [];
-    initialCards.forEach(({ name, link }) => array.push(new Card(name, link, openImage, images, imagePopupPic).create()));
-    cardList = new CardList(placesList, array);
-    cardList.render();
-  })();
+  /*+REVIEW. Можно лучше. Вы два раза проходите цикл по массиву карточек (один раз в цикле forEach при создании массива array , второй раз при
+  рендере карточек), длина которого может быть гораздо больше 10. Его длина может быть 100 и больше,
+  Но, по массиву такой длины в этом проекте можно пройти только один раз, не замедляя работу программы в случае массива большой длины.
 
-  const addCard = (event) => {
-    event.preventDefault();
-    const cardContainer = new Card(name.value, link.value, openImage, images, imagePopupPic).create();
+  Даю образец, как это можно сделать (обозначения тут не Ваши, и атрибуты карточки передаются в класс Card в виде объекта elem - смотрите
+  рекомендацию по этому поводу в классе Card, но я, думаю, Вам не трудно будет разобраться):
 
-    cardList.addCard(cardContainer);
+  В script.js:
+  (openPopupImg - метод открытия окна большого фото класса PopupImg, его можно сделать по-разному, не в этом суть.)
 
-    popupShell.close();
+  const newCard = (elem, openPopupImg) => {
+    const card = new Card(elem, openPopupImg);
+    return card.create();
+  }
 
-    popupForm.reset();
-    popupShell.resetErrors();
-    popupFormValidator.setSubmitButtonState(false);
+  const placesList = new CardList(document.querySelector('.places-list'), initialCards, newCard);
+  placesList.render(openPopupImg);
+
+
+   В классе CardList:
+
+  class CardList {
+    constructor(container,cards, func) {
+      this.container = container;
+      this.cards = cards;
+      this.func = func;
+    }
+
+    addCard = (element) => {
+      this.container.appendChild(element);
+    }
+    render = (openPopupImg) => {
+      this.cards.forEach((elem) => {
+
+        const card = this.func(elem, openPopupImg);
+
+        this.addCard(card);
+      })
+    }
+  }
+
+  */
+
+  /*+REVIEW Надо исправить. Не надо объявлять let cardList (см. комментарий выше), так как при изменении проекта есть опасность, что когда-нибудь в
+  в let cardList может оказаться пустота, в то время, когда Вам надо будет, чтобы там было какое-то значение какое-то значение.
+  Поэтому  cardList нужно обозначить как const cardList и не оборачивать код в IIFE-функцию addCards, инструкция new CardList(placesList, array)
+  и так выполняется сразу. */
+
+  function createCard(object, openImage, images, imagePopupPic) {
+    const card = new Card(object, openImage, images, imagePopupPic);
+    return card.create();
   };
+
+  const cardList = new CardList(placesList, initialCards, createCard);
+  cardList.render(openImage, images, imagePopupPic);
+
+  /*REVIEW. Надо исправить. В файле-точке входа в проект, задача которого инициализировать весь проект, запускать его на выполнение,
+  не создают новые именованные функции. Поэтому присваивать стрелочную функцию const addCard не надо. Надо эту безымянную стрелочную функцию
+  просто добавлять на форму в качестве слушателя сабмита, как Вы это делаете для формы профиля. */
 
   userInfoButton.addEventListener('click', () => {
     popupFormValidator.setSubmitButtonState(false);
@@ -135,7 +157,51 @@
 
 
   popupFormValidator.setEventListeners();
-  popupForm.addEventListener('submit', addCard);
+  popupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const cardContainer = new Card(name.value, link.value, openImage, images, imagePopupPic).create();
+    cardList.addCard(cardContainer);
+
+    popupShell.close();
+
+    popupForm.reset();
+    popupShell.resetErrors();
+    popupFormValidator.setSubmitButtonState(false);
+  });
 
   editPopupFormValidator.setEventListeners();
 })();
+
+
+
+/*REVIEW. Резюме.
+
+Работа хорошая и осмысленная, но необходимо внесение изменений.
+
+Что можно улучшить.
+
+1. Чтобы не перечислять все атрибуты карточки в параметрах конструктора, можно рассмотреть вариант передачи в параметр
+конструктора объекта, со свойствами -атрибутами карточки (подробный комментарий в классе Card).
+
+2. Если Вы хотите добавлять элемент в какой-то массив, то это надо делать при рендере карточек, и при добавлении
+новой карточки из формы, а не в классе Card (подробный комментарий в классе Card).
+
+3. По массиву карточек в этом проекте можно пройти в цикле только один раз (а не два, как у Вас), не замедляя работу
+программы в случае массива большой длины (подробный комментарий и пример в этом файле).
+
+
+Что надо исправить.
+
+1. Не надо объявлять let cardList, надо определить const cardList (подробный комментарий в этом файле перед объявлением
+ function addCards).
+
+2.Для двух имеющихся форм  нужно сделать размётку в index.html и работать с ней (подробный комментарий в этом файле перед объявлением
+ const createPopup).
+
+3. Надо слушателем сабмита формы карточки сделать безымянную стрелочную функцию, как Вы это делаете для формы профиля (подробный
+комментарий в этом файле перед объявлением const addCard).
+
+4. Надо все файлы с расширением js занести в отдельную папку в корне Вашего проекта.
+
+
+*/

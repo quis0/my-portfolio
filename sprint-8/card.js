@@ -1,4 +1,11 @@
 class Card {
+/*REVIEW. Можно лучше. Чтобы не перечислять все атрибуты карточки в параметрах конструктора, можно рассмотреть вариант передачи в параметр
+конструктора объекта, например objCard, со свойствами -атрибутами карточки, и обращаться к name и link как к свойствам этого объекта objCard.name
+и objCard.link. Передача объекта в качестве значения параметра удобна, когда надо передать много аргументов (тогда их и определяют как свойства
+одного объекта), а количество атрибутов карточки может увеличиться. Про передачу в параметры функции объекта можно прочитать здесь
+http://www.webpupil.ru/javascript_pract_view.php?id=7
+Передача объекта и переменной в функцию в Javascript
+*/
   constructor(name, link, openImage, imagesArray, popupImage) {
     this._name = name;
     this._link = link;
@@ -44,8 +51,13 @@ class Card {
     this._imageContainer.classList.add('place-card__image');
     this._imageContainer.setAttribute('style', `background-image: url('${this._link}')`);
     this._imageContainer.setAttribute('data-url', `${this._link}`);
+    /*REVIEW. Можно лучше. Если Вы хотите добавлять элемент в какой-то массив, то это надо делать при рендере карточек, и при добавлении
+    новой карточки из формы, так как метод create должен отвечать только за создание элемента карточки. К тому же у Вас уже создаётся массив
+    экземпляров карточек (хотя лучше его не создавать, или создавать по-другому, смотрите комментарий в script.js по этому поводу.)
+    Массив this._imagesArray я рекомендую Вам вывести в консоль и посмотреть, можно ли с такими данными работать.
+      */
     this._imagesArray.push(this._imageContainer);
-
+    // console.log(this._imagesArray);
     this._buttonDeleteIcon = document.createElement('button');
     this._buttonDeleteIcon.classList.add('place-card__delete-icon');
 

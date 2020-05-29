@@ -1,6 +1,5 @@
 class Popup {
-  constructor(popup, container = null) {
-    this._container = container;
+  constructor(popup) {
     this._popup = popup;
     this._isOpened = false;
     this._isForm = true;
