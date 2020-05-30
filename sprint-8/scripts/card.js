@@ -9,7 +9,6 @@ http://www.webpupil.ru/javascript_pract_view.php?id=7
   constructor(obj, openImage, imagesArray, popupImage) {
     this._name = obj.name;
     this._link = obj.link;
-    console.log(obj.name);
     this._openImage = openImage;
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;
@@ -58,7 +57,6 @@ http://www.webpupil.ru/javascript_pract_view.php?id=7
     Массив this._imagesArray я рекомендую Вам вывести в консоль и посмотреть, можно ли с такими данными работать.
       */
     this._imagesArray.push(this._imageContainer);
-    // console.log(this._imagesArray);
     this._buttonDeleteIcon = document.createElement('button');
     this._buttonDeleteIcon.classList.add('place-card__delete-icon');
 
