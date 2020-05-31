@@ -1,8 +1,5 @@
 # my portfolio
-Hello there! My name is **Grigory Zotkevich** and I am a junior frontend developer. 
-
-In this repository you can find my works. Some of them were made on online courses from **Yandex.Praktikum**.
-Some of them were based on free templates from the Internet.
+This repository contains works that were completed on courses from Yandex, as well as free templates from the Internet.
 
 * Landing page: [static](../../tree/master/sprint-2), [adaptive](../../tree/master/sprint-4)
 * [JavaScript training (14 tasks)](../../tree/master/sprint-5)
