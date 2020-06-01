@@ -8,12 +8,12 @@
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <p align="center">
-  <a href="https://github.com/quis0/my-portfolio/tree/master/sprint-4">
+  <a href="https://github.com/quis0/my-portfolio/tree/master/adaptive-landing">
     <img src="https://github.com/quis0/my-portfolio/blob/master/images/CSS3HTML5-logo.svg" alt="" height="70px">
   </a>
 </p>
 <p align="center">
-  <a href="https://github.com/quis0/my-portfolio/tree/master/sprint-8">
+  <a href="https://github.com/quis0/my-portfolio/tree/master/mesto-service">
     <img src="https://github.com/quis0/my-portfolio/blob/master/images/JS-logo.svg" alt="" width="60px" height="60px">
   </a>
 </p>
