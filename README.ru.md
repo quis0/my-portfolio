@@ -1,9 +1,9 @@
 # my portfolio
 В этом репозитории представлены работы, которые выполнены на курсах от **Яндекс.Практикума**, а также по бесплатным макетам из интернета.
 
-* Лендинг: [статичный](../../tree/master/sprint-2), [адаптивный](../../tree/master/sprint-4)
-* [Практика JavaScript (14 задач)](../../tree/master/sprint-5)
-* [Интерактивный сервис Mesto](../../tree/master/sprint-8)
+* Лендинг: [статичный](../../tree/master/static-landing), [адаптивный](../../tree/master/adaptive-landing)
+* [Практика JavaScript (14 задач)](../../tree/master/js-training)
+* [Интерактивный сервис Mesto](../../tree/master/mesto-service)
 
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
