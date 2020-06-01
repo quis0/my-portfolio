@@ -2,7 +2,7 @@
 В этом репозитории представлены работы, которые выполнены на курсах от **Яндекс.Практикума**, а также по бесплатным макетам из интернета.
 
 * Лендинг: [статичный](../../tree/master/static-landing), [адаптивный](../../tree/master/adaptive-landing)
-* [Практика JavaScript (14 задач)](../../tree/master/js-training)
+* [Практика JavaScript (14 задач)](../../tree/master/sprint-5)
 * [Интерактивный сервис Mesto](../../tree/master/mesto-service)
 
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
