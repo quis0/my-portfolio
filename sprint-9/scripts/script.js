@@ -1,5 +1,7 @@
 (function () {
 
+
+
   const placesList = document.querySelector('.places-list');
   const popup = document.querySelector('#new-card');
   const popupClose = popup.querySelector('.popup__close');
@@ -92,8 +94,25 @@
     return card.create();
   };
 
-  const cardList = new CardList(placesList, initialCards, createCard);
-  cardList.render(openImage, images, imagePopupPic);
+  (function renderInitialCards() {
+    fetch('https://praktikum.tk/cohort11/cards', {
+      headers: {
+        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0'
+      }
+    }).then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(res.status);
+    }).then((res) => {
+      res.forEach(elem => {
+        initialCards.push({ name: `${elem.name}`, link: `${elem.link}` });
+      });
+    }).then(() => {
+      const cardList = new CardList(placesList, initialCards, createCard);
+      cardList.render(openImage, images, imagePopupPic);
+    }).catch(err => console.log(err));
+  })();
 
   userInfoButton.addEventListener('click', () => {
     popupFormValidator.setSubmitButtonState(false);
