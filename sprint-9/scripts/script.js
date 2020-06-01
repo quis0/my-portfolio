@@ -24,24 +24,9 @@
   const userInfoAbout = document.querySelector('.user-info__job');
   const userInfoPhoto = document.querySelector('.user-info__photo');
 
-  (function setUserInfo() {
-    fetch('https://praktikum.tk/cohort11/users/me', {
-      headers: {
-        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0'
-      }
-    }).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(res.status);
-    }).then((res) => {
-      userInfoName.textContent = res.name;
-      userInfoAbout.textContent = res.about;
-      userInfoPhoto.setAttribute('style', `background-image: url('${res.avatar}')`);
-    }).catch(err => console.log(err));
-  })();
 
-  const userInfoShell = new UserInfo(userInfoName, userInfoAbout);
+  const userInfoShell = new UserInfo(userInfoName, userInfoAbout, userInfoPhoto);
+  userInfoShell.render();
   const userInfoButton = document.querySelector('.user-info__button');
   const editButton = document.querySelector('.user-info__edit-button');
 

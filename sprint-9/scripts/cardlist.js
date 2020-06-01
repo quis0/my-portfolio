@@ -2,7 +2,6 @@ class CardList {
   constructor(container, array, createCard) {
     this._container = container;
     this._array = array;
-    console.log(this._array)
     this._createCard = createCard;
   }
   addCard(card) {
