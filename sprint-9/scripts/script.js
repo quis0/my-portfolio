@@ -78,7 +78,7 @@
     const card = new Card(object, openImage, images, imagePopupPic);
     return card.create();
   };
-
+  const cardList = new CardList(placesList, createCard);
   (function renderInitialCards() {
     fetch('https://praktikum.tk/cohort11/cards', {
       headers: {
@@ -94,8 +94,7 @@
         initialCards.push({ name: `${elem.name}`, link: `${elem.link}` });
       });
     }).then(() => {
-      const cardList = new CardList(placesList, initialCards, createCard);
-      cardList.render(openImage, images, imagePopupPic);
+      cardList.render(openImage, images, imagePopupPic, initialCards);
     }).catch(err => console.log(err));
   })();
 
@@ -125,7 +124,7 @@
       link: link.value
     };
     const cardContainer = new Card(popupFormElements, openImage, images, imagePopupPic).create();
-    cardList.addCard(cardContainer);
+    cardList.addCard(cardContainer, false);
 
     popupShell.close();
 
