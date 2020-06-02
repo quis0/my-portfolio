@@ -91,7 +91,7 @@
       return Promise.reject(res.status);
     }).then((res) => {
       res.forEach(elem => {
-        initialCards.push({ name: `${elem.name}`, link: `${elem.link}` });
+        initialCards.push({ name: `${elem.name}`, link: `${elem.link}`, likes: `${elem.likes.length}` });
       });
     }).then(() => {
       cardList.render(openImage, images, imagePopupPic, initialCards);

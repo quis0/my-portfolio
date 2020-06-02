@@ -2,6 +2,7 @@ class Card {
   constructor(obj, openImage, imagesArray, popupImage) {
     this._name = obj.name;
     this._link = obj.link;
+    this._likes = obj.likes;
     this._openImage = openImage;
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;
@@ -60,6 +61,7 @@ class Card {
 
     const likeCounter = document.createElement('p');
     likeCounter.classList.add('place-card__like-counter');
+    likeCounter.textContent = this._likes;
 
     const likeContainer = document.createElement('div');
     likeContainer.classList.add('place-card__like-container');
