@@ -58,9 +58,18 @@ class Card {
     this._buttonLike = document.createElement('button');
     this._buttonLike.classList.add('place-card__like-icon');
 
+    const likeCounter = document.createElement('p');
+    likeCounter.classList.add('place-card__like-counter');
+
+    const likeContainer = document.createElement('div');
+    likeContainer.classList.add('place-card__like-container');
+
+    likeContainer.appendChild(this._buttonLike);
+    likeContainer.appendChild(likeCounter);
+
     this._imageContainer.appendChild(this._buttonDeleteIcon);
     cardDescriptionContainer.appendChild(cardName);
-    cardDescriptionContainer.appendChild(this._buttonLike);
+    cardDescriptionContainer.appendChild(likeContainer);
 
     this._cardContainer.appendChild(this._imageContainer);
     this._cardContainer.appendChild(cardDescriptionContainer);

@@ -1,11 +1,13 @@
 class CardList {
-  constructor(container, createCard) {
+  constructor(container, createCard) { //передать методы api для запросов к серверу
     this._container = container;
     this._createCard = createCard;
   }
   addCard(card, isPreloaded) {
     const cardLink = card.querySelector('.place-card__image').dataset.url || card.querySelector('.place-card__image').style.backgroundImage.slice(5, -2);
     const cardName = card.querySelector('.place-card__name').textContent;
+    const likeCounter = card.querySelector('.place-card__like-counter');
+    likeCounter.textContent = '1';
 
     const allCardLinks = [...this._container.querySelectorAll('.place-card__image')].map(elem => elem.style.backgroundImage.slice(5, -2));
     const allCardNames = [...this._container.querySelectorAll('.place-card__name')].map(elem => elem.textContent);
