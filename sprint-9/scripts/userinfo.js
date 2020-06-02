@@ -10,9 +10,20 @@ class UserInfo {
     this._name = name;
     this._about = about;
   }
-  updateUserInfo(nameField, aboutField) {
-    nameField.textContent = this._name;
-    aboutField.textContent = this._about;
+  updateUserInfo() {
+    this._nameField.textContent = this._name;
+    this._aboutField.textContent = this._about;
+    fetch('https://praktikum.tk/cohort11/users/me', {
+      method: 'PATCH',
+      headers: {
+        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: this._name,
+        about: this._about
+      })
+    });
   }
   render() {
     fetch('https://praktikum.tk/cohort11/users/me', {

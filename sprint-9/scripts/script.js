@@ -64,7 +64,7 @@
     editForm.addEventListener('submit', (evt) => {
       evt.preventDefault();
       userInfoShell.setUserInfo(userName.value, about.value);
-      userInfoShell.updateUserInfo(userInfoName, userInfoAbout);
+      userInfoShell.updateUserInfo();
       editPopupShell.close();
     });
 
