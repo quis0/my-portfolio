@@ -1,5 +1,8 @@
 <h1 align="center">Mesto</h1>
 
+### About
+Mesto &ndash; interactive service for working with photos.
+
 ### Functionality: 
 1. Sprint-6 functions:
     * 10 initial cards on page load
