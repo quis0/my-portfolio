@@ -1,3 +1,5 @@
+<h1 align="center">Mesto</h1>
+
 ### Functionality: 
 1. Sprint-6 functions:
     * 10 initial cards on page load
