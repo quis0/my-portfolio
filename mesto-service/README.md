@@ -28,6 +28,7 @@ Mesto &ndash; interactive service for working with photos.
 3. JavaScript (ES6)
 ### Future scope
    * Add ability to edit user avatar
+   * Connect the project to the server
 
 ### Try it: www.mesto-service.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
