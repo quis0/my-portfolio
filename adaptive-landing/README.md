@@ -1,3 +1,5 @@
+<h1 align="center">Travel in Russia</h1>
+
 ### Functionality: 
 1. Sprint-3:
     * Static landing page based on the layout from Figma
