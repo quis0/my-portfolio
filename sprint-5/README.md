@@ -1,3 +1,5 @@
+<h1 align="center">JavaScript training</h1>
+
 ### Objective: 14 folders. 14 tasks. All tests must be covered.
 
 #### Common tasks: 
