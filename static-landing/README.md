@@ -17,6 +17,8 @@ Learn to learn &ndash; a static website that tells you about the main techniques
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
+### Future scope
+   * Make the adaptive version
 ### Try it: www.static-landing-page.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
