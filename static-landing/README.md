@@ -1,3 +1,7 @@
+<h1 align="center">Learn to learn</h1>
+
+### About
+Learn to learn &ndash; a static website that tells you about the main techniques and problems in learning.
 ### Functionality: 
 1. Sprint-1:
     * Static landing page based on the detailed guide (this one: [sprint-1-brief](./sprint-1/sprint-1-brief.pdf)) 
