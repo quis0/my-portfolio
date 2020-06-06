@@ -75,7 +75,7 @@
   const editPopupFormValidator = new FormValidator(editPopupShell.getForm());
 
   function createCard(object, openImage, images, imagePopupPic) {
-    const card = new Card(object, openImage, images, imagePopupPic);
+    const card = new Card(object, openImage, images, imagePopupPic, userInfoShell.getUserId());
     return card.create();
   };
   const cardList = new CardList(placesList, createCard);
@@ -91,7 +91,7 @@
       return Promise.reject(res.status);
     }).then((res) => {
       res.forEach(elem => {
-        initialCards.push({ name: `${elem.name}`, link: `${elem.link}`, likes: `${elem.likes.length}` });
+        initialCards.push({ name: `${elem.name}`, link: `${elem.link}`, likes: `${elem.likes.length}`, id: `${elem._id}`, ownerId: `${elem.owner._id}` }); //добавить айди
       });
     }).then(() => {
       cardList.render(openImage, images, imagePopupPic, initialCards);
@@ -121,9 +121,9 @@
     event.preventDefault();
     const popupFormElements = {
       name: name.value,
-      link: link.value
+      link: link.value,
     };
-    const cardContainer = new Card(popupFormElements, openImage, images, imagePopupPic).create();
+    const cardContainer = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId()).create();
     cardList.addCard(cardContainer, false);
 
     popupShell.close();
