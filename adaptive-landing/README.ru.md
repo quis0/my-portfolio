@@ -12,5 +12,7 @@
 ### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
+### Планы на будущее
+   * Добавить англоязычную версию сайта
 ### Посмотреть сайт: www.adaptive-landing-page.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
