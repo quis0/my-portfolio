@@ -11,5 +11,7 @@ Demo site &ndash; business card website for freelancer.
 ### Project tech stack:
 1. HTML 5
 2. CSS 3
+### Future scope
+   * Add form validation
 ### Try it: www.demo-site-adaptive.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
