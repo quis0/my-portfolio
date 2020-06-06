@@ -1,5 +1,7 @@
 <h1 align="center">Travel in Russia</h1>
 
+### About
+Travel in Russia &ndash; adaptive website about interesting and beautiful places in Russia, as well as about travel.
 ### Functionality: 
 1. Sprint-3:
     * Static landing page based on the layout from Figma
