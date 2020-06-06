@@ -11,5 +11,7 @@ Demo site &ndash; сайт-визитка для фрилансера.
 ### Стек технологий, используемых в проекте:
 1. HTML 5
 2. CSS 3
+### Планы на будущее
+   * Добавить валидацию формы
 ### Посмотреть сайт: www.demo-site-adaptive.surge.sh
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
