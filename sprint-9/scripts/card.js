@@ -1,12 +1,17 @@
 class Card {
-  constructor(obj, openImage, imagesArray, popupImage) {
+  constructor(obj, openImage, imagesArray, popupImage, userId) {
     this._name = obj.name;
     this._link = obj.link;
     this._likes = obj.likes;
+    this._id = obj.id;
+    this._ownerId = obj.ownerId;
     this._openImage = openImage;
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;
+    this._userId = userId;
     this.open = this.open.bind(this);
+    this.remove = this.remove.bind(this);
+    //здесь проверка id
   }
 
   like(event) {
@@ -14,7 +19,46 @@ class Card {
   }
 
   remove(event) {
-    event.target.closest('.place-card').remove();
+    if (this._id === undefined) { //вынести в getId()
+      fetch(`https://praktikum.tk/cohort11/cards`, {
+        headers: {
+          authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+        },
+      }).then(res => res.json()).then(res => [...res].forEach(elem => {
+        if (elem.name == this._name && elem.link == this._link) {
+          this._id = elem._id;
+          fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
+            method: 'DELETE',
+            headers: {
+              authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+            },
+          }).then(res => {
+            if (res.ok) {
+              event.target.closest('.place-card').remove();
+            } else {
+              return Promise.reject(res.status);
+            }
+          }).catch(err => console.log(err));
+        }
+      }))
+    } else {
+      fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
+        method: 'DELETE',
+        headers: {
+          authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+        },
+      }).then(res => {
+        if (res.ok) {
+          event.target.closest('.place-card').remove();
+        } else {
+          return Promise.reject(res.status);
+        } //убрать повторение с помощью метода api
+      }).catch(err => console.log(err));
+    }
+
+
+
+
   }
 
   open() {
@@ -48,6 +92,7 @@ class Card {
     this._imagesArray.push(this._imageContainer);
     this._buttonDeleteIcon = document.createElement('button');
     this._buttonDeleteIcon.classList.add('place-card__delete-icon');
+    if (this._ownerId === this._userId) this._buttonDeleteIcon.style.display = 'block';
 
     const cardDescriptionContainer = document.createElement('div');
     cardDescriptionContainer.classList.add('place-card__description');

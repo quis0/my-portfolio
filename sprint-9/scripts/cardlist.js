@@ -16,8 +16,6 @@ class CardList {
       return undefined;
     }
 
-    this._container.appendChild(card);
-
     if (!isPreloaded) {
       fetch('https://praktikum.tk/cohort11/cards', {
         method: 'POST',
@@ -29,8 +27,18 @@ class CardList {
           name: cardName,
           link: cardLink
         })
-      });
+      }).then(res => {
+        if (res.ok) {
+          card.querySelector('.place-card__delete-icon').style.display = 'block';
+          card.querySelector('.place-card__like-counter').textContent = '0';
+        } else {
+          return Promise.reject(res.status);
+        }
+      }).catch(err => console.log(err));
     }
+
+    this._container.appendChild(card);
+
   }
   render(openImage, images, imagePopupPic, array) {
     this._array = array;

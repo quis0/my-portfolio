@@ -1,18 +1,19 @@
 class UserInfo {
   constructor(nameField, aboutField, photoField) {
-    this._name = null;
-    this._about = null;
+    this.name = null;
+    this.about = null;
+    this.userId = null;
     this._nameField = nameField;
     this._aboutField = aboutField;
     this._photoField = photoField;
   }
   setUserInfo(name, about) {
-    this._name = name;
-    this._about = about;
+    this.name = name;
+    this.about = about;
   }
   updateUserInfo() {
-    this._nameField.textContent = this._name;
-    this._aboutField.textContent = this._about;
+    this._nameField.textContent = this.name;
+    this._aboutField.textContent = this.about;
     fetch('https://praktikum.tk/cohort11/users/me', {
       method: 'PATCH',
       headers: {
@@ -20,8 +21,8 @@ class UserInfo {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: this._name,
-        about: this._about
+        name: this.name,
+        about: this.about
       })
     });
   }
@@ -36,17 +37,21 @@ class UserInfo {
       }
       return Promise.reject(res.status);
     }).then((res) => {
-      this._name = res.name;
-      this._about = res.about;
+      this.name = res.name;
+      this.about = res.about;
+      this.userId = res._id;
       this._nameField.textContent = res.name;
       this._aboutField.textContent = res.about;
       this._photoField.setAttribute('style', `background-image: url('${res.avatar}')`);
     }).catch(err => console.log(err));
   }
   getName() {
-    return this._name;
+    return this.name;
   }
   getAbout() {
-    return this._about;
+    return this.about;
+  }
+  getUserId() {
+    return this.userId;
   }
 }
