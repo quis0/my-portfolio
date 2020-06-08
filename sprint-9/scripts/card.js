@@ -10,55 +10,77 @@ class Card {
     this._popupImage = popupImage;
     this._userId = userId;
     this.open = this.open.bind(this);
+    this.like = this.like.bind(this);
     this.remove = this.remove.bind(this);
-    //здесь проверка id
   }
 
+
   like(event) {
-    event.target.classList.toggle('place-card__like-icon_liked');
+    fetch(`https://praktikum.tk/cohort11/cards/like/${this._id}`, {
+      method: 'PUT',
+      headers: {
+        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+      },
+    }).then(res => {
+      if (res.ok) {
+        event.target.classList.toggle('place-card__like-icon_liked');
+        fetch(`https://praktikum.tk/cohort11/cards`, {
+          headers: {
+            authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+          },
+        }).then(res => res.json()).then(res => res.forEach(elem => {
+          if (elem.name == this._name && elem.link == this._link) {
+            this.likeCounter.textContent = elem.likes.length;
+          }
+        })).catch(err => console.log(err));
+
+      } else {
+        return Promise.reject(res.status);
+      }
+    }).catch(err => console.log(err));
   }
 
   remove(event) {
-    if (this._id === undefined) { //вынести в getId()
-      fetch(`https://praktikum.tk/cohort11/cards`, {
-        headers: {
-          authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-        },
-      }).then(res => res.json()).then(res => [...res].forEach(elem => {
-        if (elem.name == this._name && elem.link == this._link) {
-          this._id = elem._id;
-          fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
-            method: 'DELETE',
-            headers: {
-              authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-            },
-          }).then(res => {
-            if (res.ok) {
-              event.target.closest('.place-card').remove();
-            } else {
-              return Promise.reject(res.status);
-            }
-          }).catch(err => console.log(err));
-        }
-      }))
+    if (window.confirm("Вы действительно хотите удалить эту карточку?")) {
+      if (this._id === undefined) { //вынести в getId()
+        fetch(`https://praktikum.tk/cohort11/cards`, {
+          headers: {
+            authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+          },
+        }).then(res => res.json()).then(res => [...res].forEach(elem => {
+          if (elem.name == this._name && elem.link == this._link) {
+            this._id = elem._id;
+            fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
+              method: 'DELETE',
+              headers: {
+                authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+              },
+            }).then(res => {
+              if (res.ok) {
+                event.target.closest('.place-card').remove();
+              } else {
+                return Promise.reject(res.status);
+              }
+            }).catch(err => console.log(err));
+          }
+        }))
+      } else {
+        fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
+          method: 'DELETE',
+          headers: {
+            authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+          },
+        }).then(res => {
+          if (res.ok) {
+            event.target.closest('.place-card').remove();
+          } else {
+            return Promise.reject(res.status);
+          } //убрать повторение с помощью метода api
+        }).catch(err => console.log(err));
+      }
     } else {
-      fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
-        method: 'DELETE',
-        headers: {
-          authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-        },
-      }).then(res => {
-        if (res.ok) {
-          event.target.closest('.place-card').remove();
-        } else {
-          return Promise.reject(res.status);
-        } //убрать повторение с помощью метода api
-      }).catch(err => console.log(err));
+      return;
     }
-
-
-
-
   }
 
   open() {
@@ -104,15 +126,15 @@ class Card {
     this._buttonLike = document.createElement('button');
     this._buttonLike.classList.add('place-card__like-icon');
 
-    const likeCounter = document.createElement('p');
-    likeCounter.classList.add('place-card__like-counter');
-    likeCounter.textContent = this._likes;
+    this.likeCounter = document.createElement('p');
+    this.likeCounter.classList.add('place-card__like-counter');
+    this.likeCounter.textContent = this._likes;
 
     const likeContainer = document.createElement('div');
     likeContainer.classList.add('place-card__like-container');
 
     likeContainer.appendChild(this._buttonLike);
-    likeContainer.appendChild(likeCounter);
+    likeContainer.appendChild(this.likeCounter);
 
     this._imageContainer.appendChild(this._buttonDeleteIcon);
     cardDescriptionContainer.appendChild(cardName);
