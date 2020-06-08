@@ -10,7 +10,10 @@ class Card {
     this._popupImage = popupImage;
     this._userId = userId;
     this.open = this.open.bind(this);
+<<<<<<< HEAD
     this.like = this.like.bind(this);
+=======
+>>>>>>> 43076cd55f92aca3e3b74cc6b5bfd2c8ab42b506
     this.remove = this.remove.bind(this);
   }
 
@@ -41,6 +44,7 @@ class Card {
   }
 
   remove(event) {
+<<<<<<< HEAD
     if (window.confirm("Вы действительно хотите удалить эту карточку?")) {
       if (this._id === undefined) { //вынести в getId()
         fetch(`https://praktikum.tk/cohort11/cards`, {
@@ -81,6 +85,48 @@ class Card {
     } else {
       return;
     }
+=======
+    if (this._id === undefined) {
+      fetch(`https://praktikum.tk/cohort11/cards`, {
+        headers: {
+          authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+        },
+      }).then(res => res.json()).then(res => [...res].forEach(elem => {
+        if (elem.name == this._name && elem.link == this._link) {
+          this._id = elem._id;
+          fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
+            method: 'DELETE',
+            headers: {
+              authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+            },
+          }).then(res => {
+            if (res.ok) {
+              event.target.closest('.place-card').remove();
+            } else {
+              return Promise.reject(res.status);
+            }
+          }).catch(err => console.log(err));
+        }
+      }))
+    } else {
+      fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
+        method: 'DELETE',
+        headers: {
+          authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+        },
+      }).then(res => {
+        if (res.ok) {
+          event.target.closest('.place-card').remove();
+        } else {
+          return Promise.reject(res.status);
+        } //убрать повторение с помощью метода api
+      }).catch(err => console.log(err));
+    }
+
+
+
+
+>>>>>>> 43076cd55f92aca3e3b74cc6b5bfd2c8ab42b506
   }
 
   open() {
