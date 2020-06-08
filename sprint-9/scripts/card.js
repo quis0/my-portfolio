@@ -24,20 +24,11 @@ class Card {
     }).then(res => {
       if (res.ok) {
         event.target.classList.toggle('place-card__like-icon_liked');
-        fetch(`https://praktikum.tk/cohort11/cards`, {
-          headers: {
-            authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-          },
-        }).then(res => res.json()).then(res => res.forEach(elem => {
-          if (elem.name == this._name && elem.link == this._link) {
-            this.likeCounter.textContent = elem.likes.length;
-          }
-        })).catch(err => console.log(err));
-
+        return res.json();
       } else {
         return Promise.reject(res.status);
       }
-    }).catch(err => console.log(err));
+    }).then(res => this.likeCounter.textContent = res.likes.length).catch(err => console.log(err));
   }
 
   remove(event) {
