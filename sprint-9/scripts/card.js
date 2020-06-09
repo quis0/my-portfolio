@@ -5,6 +5,7 @@ class Card {
     this._likes = obj.likes;
     this._id = obj.id;
     this._ownerId = obj.ownerId;
+    this._isLiked = obj.isLiked;
     this._openImage = openImage;
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;
@@ -14,10 +15,14 @@ class Card {
     this.remove = this.remove.bind(this);
   }
 
+  setId(id) {
+    this._id = id;
+  }
 
   like(event) {
+    let method = this._isLiked ? 'DELETE' : 'PUT';
     fetch(`https://praktikum.tk/cohort11/cards/like/${this._id}`, {
-      method: 'PUT',
+      method: `${method}`,
       headers: {
         authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
       },
@@ -29,6 +34,7 @@ class Card {
         return Promise.reject(res.status);
       }
     }).then(res => this.likeCounter.textContent = res.likes.length).catch(err => console.log(err));
+    this._isLiked = !this._isLiked;
   }
 
   remove(event) {
@@ -116,6 +122,7 @@ class Card {
 
     this._buttonLike = document.createElement('button');
     this._buttonLike.classList.add('place-card__like-icon');
+    if (this._isLiked) this._buttonLike.classList.add('place-card__like-icon_liked');
 
     this.likeCounter = document.createElement('p');
     this.likeCounter.classList.add('place-card__like-counter');

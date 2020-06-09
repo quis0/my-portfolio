@@ -90,8 +90,17 @@
       }
       return Promise.reject(res.status);
     }).then((res) => {
+      const userId = userInfoShell.getUserId();
       res.forEach(elem => {
-        initialCards.push({ name: `${elem.name}`, link: `${elem.link}`, likes: `${elem.likes.length}`, id: `${elem._id}`, ownerId: `${elem.owner._id}` });
+        let isLiked = false;
+
+        elem.likes.forEach(item => {
+          if (userId == item._id) {
+            isLiked = true;
+          }
+        });
+
+        initialCards.push({ name: elem.name, link: elem.link, likes: elem.likes.length, id: elem._id, ownerId: elem.owner._id, isLiked: isLiked });
       });
     }).then(() => {
       cardList.render(openImage, images, imagePopupPic, initialCards);
@@ -121,10 +130,22 @@
     event.preventDefault();
     const popupFormElements = {
       name: name.value,
-      link: link.value,
+      link: link.value,//Добавить айди, а то не камильфо каждый раз его запрашивать
     };
-    const cardContainer = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId()).create();
+
+    const card = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId())
+    const cardContainer = card.create();
     cardList.addCard(cardContainer, false);
+
+    fetch(`https://praktikum.tk/cohort11/cards`, {
+      headers: {
+        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
+      },
+    }).then(res => res.json()).then(res => [...res].forEach(elem => {
+      if (elem.name == popupFormElements.name && elem.link == popupFormElements.link) {
+        card.setId(elem._id);
+      }
+    }))
 
     popupShell.close();
 
