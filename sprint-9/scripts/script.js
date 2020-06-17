@@ -22,8 +22,9 @@
   const userInfoAbout = document.querySelector('.user-info__job');
   const userInfoPhoto = document.querySelector('.user-info__photo');
 
+  const api = new Api(config);
 
-  const userInfoShell = new UserInfo(userInfoName, userInfoAbout, userInfoPhoto);
+  const userInfoShell = new UserInfo(userInfoName, userInfoAbout, userInfoPhoto, api);
   userInfoShell.render();
   const userInfoButton = document.querySelector('.user-info__button');
   const editButton = document.querySelector('.user-info__edit-button');
@@ -54,7 +55,7 @@
     });
 
     editPopupCloseButton.addEventListener('click', () => {
-      editPopupShell.resetErrors();
+      editPopupFormValidator.resetErrors();
       editForm.reset();
       editPopupShell.close();
     });
@@ -72,37 +73,32 @@
   const editPopupShell = createEditPopupShell();
   const editPopupFormValidator = new FormValidator(editPopupShell.getForm());
 
+  editPopupFormValidator.setEventListeners();
+
   function createCard(object, openImage, images, imagePopupPic) {
-    const card = new Card(object, openImage, images, imagePopupPic, userInfoShell.getUserId());
+    const card = new Card(object, openImage, images, imagePopupPic, userInfoShell.getUserId(), api);
     return card.create();
   };
-  const cardList = new CardList(placesList, createCard);
+
+  const cardList = new CardList(placesList, createCard, api);
+
   (function renderInitialCards() {
-    fetch('https://praktikum.tk/cohort11/cards', {
-      headers: {
-        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0'
-      }
-    }).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(res.status);
-    }).then((res) => {
+    api.getInitialCards().then((res) => {
       const userId = userInfoShell.getUserId();
       res.forEach(elem => {
         let isLiked = false;
 
         elem.likes.forEach(item => {
-          if (userId == item._id) {
+          if (userId === item._id) {
             isLiked = true;
           }
         });
 
         initialCards.push({ name: elem.name, link: elem.link, likes: elem.likes.length, id: elem._id, ownerId: elem.owner._id, isLiked: isLiked });
+        cardList.render(openImage, images, imagePopupPic, initialCards);
       });
-    }).then(() => {
-      cardList.render(openImage, images, imagePopupPic, initialCards);
-    }).catch(err => console.log(err));
+    })
+      .catch(err => console.log(err));
   })();
 
   userInfoButton.addEventListener('click', () => {
@@ -112,7 +108,7 @@
   });
 
   popupClose.addEventListener('click', () => {
-    popupShell.resetErrors();
+    popupFormValidator.resetErrors();
     popupFormValidator.setSubmitButtonState(false);
     popupForm.reset();
     popupShell.close();
@@ -128,31 +124,65 @@
     event.preventDefault();
     const popupFormElements = {
       name: name.value,
-      link: link.value,//Добавить айди, а то не камильфо каждый раз его запрашивать
+      link: link.value,
     };
 
-    const card = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId())
-    const cardContainer = card.create();
-    cardList.addCard(cardContainer, false);
+    const card = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId(), api)
 
-    fetch(`https://praktikum.tk/cohort11/cards`, {
-      headers: {
-        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-      },
-    }).then(res => res.json()).then(res => [...res].forEach(elem => {
-      if (elem.name == popupFormElements.name && elem.link == popupFormElements.link) {
-        card.setId(elem._id);
-      }
-    }))
+    /*
+     Надо исправить:
+     - Id карточки необходимо принимать из ответа метода postCard, класса api.js
+     - getInitialCards вызывается только один раз при старте работы приложения
+     */
+
+    const cardContainer = card.create();
+    const cardLink = card.getLink();
+    const cardName = card.getName();
+
+    api.postCard(cardName, cardLink)
+      /*
+       Надо исправить:
+       - Вынести обращение к api в script.js. Сделать так, чтобы метод addCard только добавлял карточку в DOM (this._container.appendChild(card)).
+       Избавиться от isPreloaded
+      */
+      .then((res) => {
+        cardContainer.querySelector('.place-card__delete-icon').style.display = 'block';
+        cardContainer.querySelector('.place-card__like-counter').textContent = '0';
+        cardList.addCard(cardContainer);
+
+        card.setId(res._id);
+      })
+      .catch(err => console.log(err));
 
     popupShell.close();
 
     popupForm.reset();
-    popupShell.resetErrors();
+    popupFormValidator.resetErrors();
     popupFormValidator.setSubmitButtonState(false);
+
+
   });
 
-  editPopupFormValidator.setEventListeners();
+
 
 
 })();
+
+/*
+ Что понравилось:
+ - Возможность поставить, удалить, показать количество лайков
+ - Возможность удалить карточку
+
+ Можно лучше:
+ - Хорошей практикой считается, санчала объявлять константы, потом функции, потом назначать слушатели.
+ Не стоит перемешивать в кучу объявления функций, инстансов классов и переменных.
+ - Есть проблемы с форматированием
+ - Вынести 'Content-Type': 'application/json' в config
+
+ Надо исправить:
+ - Не совсем правильно был реализован API на async/await. В случае если response.ok !== true, надо возращать Promise.reject(response.status).
+ - Добавление карточки реализовано неверно
+ - метод getInitialCards должен вызываться только один раз
+ - Отрефакторить метод addCard класса CardList так, чтобы он только добавлял карточку в DOM, а не обращался в
+ api.js
+ */

@@ -1,5 +1,5 @@
 class Card {
-  constructor(obj, openImage, imagesArray, popupImage, userId) {
+  constructor(obj, openImage, imagesArray, popupImage, userId, api) {
     this._name = obj.name;
     this._link = obj.link;
     this._likes = obj.likes;
@@ -10,8 +10,9 @@ class Card {
     this._imagesArray = imagesArray;
     this._popupImage = popupImage;
     this._userId = userId;
+    this.api = api;
     this.open = this.open.bind(this);
-    this.like = this.like.bind(this);
+    this.toggleLike = this.toggleLike.bind(this);
     this.remove = this.remove.bind(this);
   }
 
@@ -19,64 +20,36 @@ class Card {
     this._id = id;
   }
 
-  like(event) {
-    let method = this._isLiked ? 'DELETE' : 'PUT';
-    fetch(`https://praktikum.tk/cohort11/cards/like/${this._id}`, {
-      method: `${method}`,
-      headers: {
-        authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-      },
-    }).then(res => {
-      if (res.ok) {
+  getName() {
+    return this._name;
+  }
+
+  getLink() {
+    return this._link;
+  }
+
+  toggleLike(event) {
+    this.api.toggleLike(this._id, this._isLiked)
+      .then(res => {
         event.target.classList.toggle('place-card__like-icon_liked');
-        return res.json();
-      } else {
-        return Promise.reject(res.status);
-      }
-    }).then(res => this.likeCounter.textContent = res.likes.length).catch(err => console.log(err));
-    this._isLiked = !this._isLiked;
+        this.likeCounter.textContent = res.likes.length
+        this._isLiked = !this._isLiked;
+      }).catch(err => console.log(err));
   }
 
   remove(event) {
     if (window.confirm("Вы действительно хотите удалить эту карточку?")) {
-      if (this._id === undefined) { //вынести в getId()
-        fetch(`https://praktikum.tk/cohort11/cards`, {
-          headers: {
-            authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-          },
-        }).then(res => res.json()).then(res => [...res].forEach(elem => {
-          if (elem.name == this._name && elem.link == this._link) {
-            this._id = elem._id;
-            fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
-              method: 'DELETE',
-              headers: {
-                authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-              },
-            }).then(res => {
-              if (res.ok) {
-                event.target.closest('.place-card').remove();
-              } else {
-                return Promise.reject(res.status);
-              }
-            }).catch(err => console.log(err));
-          }
-        }))
-      } else {
-        fetch(`https://praktikum.tk/cohort11/cards/${this._id}`, {
-          method: 'DELETE',
-          headers: {
-            authorization: '95676b56-2da6-4da6-b83d-5dd17042dba0',
-          },
-        }).then(res => {
-          if (res.ok) {
-            event.target.closest('.place-card').remove();
-          } else {
-            return Promise.reject(res.status);
-          } //убрать повторение с помощью метода api
-        }).catch(err => console.log(err));
-      }
-    } else {
-      return;
+      this.api.deleteCard(this._id).then(() => {
+        /*
+         Надо исправить:
+         - Удалять каточку при помощи метода deleteCard класса api
+         - Не использовать больше одного раза getInitialCards
+        */
+
+
+        event.target.closest('.place-card').remove();
+      }).catch(err => console.log(err));
+
     }
   }
 
@@ -90,13 +63,13 @@ class Card {
 
   _setEventListeners() {
     this._buttonDeleteIcon.addEventListener('click', this.remove);
-    this._buttonLike.addEventListener('click', this.like);
+    this._buttonLike.addEventListener('click', this.toggleLike);
     this._imageContainer.addEventListener('click', this.open);
   }
 
   _removeEventListeners() {
     this._buttonDeleteIcon.removeEventListener('click', this.remove);
-    this._buttonLike.removeEventListener('click', this.like);
+    this._buttonLike.removeEventListener('click', this.toggleLike);
     this._imageContainer.removeEventListener('click', this.open);
   }
 
