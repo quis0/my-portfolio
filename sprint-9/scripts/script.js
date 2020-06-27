@@ -7,9 +7,8 @@
   const { name, link } = popupForm.elements;
 
   const popupShell = new Popup(popup);
-  popupShell.setEventListeners();
-
   const popupFormValidator = new FormValidator(popupShell.getForm());
+  popupShell.setEventListeners(popupFormValidator.resetErrors);
   const imagePopup = document.querySelector('#image-popup');
   const imagePopupPic = imagePopup.querySelector('.popup__image');
   const imagePopupClose = imagePopup.querySelector('.popup__close');
@@ -44,7 +43,7 @@
     editPopupSaveButton.classList.add('popup__button_fontsize_medium');
 
     const editPopupShell = new Popup(popup);
-    editPopupShell.setEventListeners();
+
 
     editButton.addEventListener('click', () => {
       editPopupShell.open();
@@ -72,6 +71,7 @@
 
   const editPopupShell = createEditPopupShell();
   const editPopupFormValidator = new FormValidator(editPopupShell.getForm());
+  editPopupShell.setEventListeners(editPopupFormValidator.resetErrors);
 
   editPopupFormValidator.setEventListeners();
 
@@ -127,39 +127,39 @@
       link: link.value,
     };
 
-    const card = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId(), api)
 
     /*
      Надо исправить:
-     - Id карточки необходимо принимать из ответа метода postCard, класса api.js
-     - getInitialCards вызывается только один раз при старте работы приложения
-     */
+     - Не нужно создавать карточку до того как у Вас успешно выполнится запрос на ее создание.
+     Параметрами api.postCard должны быть поля попапа создания карточки, из ответа сервера можно взять все необходимые данные.
+     Можно лучше:
+     - Избавиться от методов getLink, getName класса Card
+    */
 
-    const cardContainer = card.create();
-    const cardLink = card.getLink();
-    const cardName = card.getName();
-
-    api.postCard(cardName, cardLink)
-      /*
-       Надо исправить:
-       - Вынести обращение к api в script.js. Сделать так, чтобы метод addCard только добавлял карточку в DOM (this._container.appendChild(card)).
-       Избавиться от isPreloaded
-      */
+    api.postCard(popupFormElements.name, popupFormElements.link)
       .then((res) => {
+        const card = new Card(popupFormElements, openImage, images, imagePopupPic, userInfoShell.getUserId(), api)
+
+        const cardContainer = card.create();
         cardContainer.querySelector('.place-card__delete-icon').style.display = 'block';
         cardContainer.querySelector('.place-card__like-counter').textContent = '0';
         cardList.addCard(cardContainer);
 
         card.setId(res._id);
+
+        popupShell.close();
+
+        popupForm.reset();
+        popupFormValidator.resetErrors();
+        popupFormValidator.setSubmitButtonState(false);
       })
       .catch(err => console.log(err));
 
-    popupShell.close();
 
-    popupForm.reset();
-    popupFormValidator.resetErrors();
-    popupFormValidator.setSubmitButtonState(false);
-
+    /*
+      Надо исправить:
+      - Все действия выше должны выполняться после успешного запроса на добваление карточки
+    */
 
   });
 
@@ -176,13 +176,10 @@
  Можно лучше:
  - Хорошей практикой считается, санчала объявлять константы, потом функции, потом назначать слушатели.
  Не стоит перемешивать в кучу объявления функций, инстансов классов и переменных.
- - Есть проблемы с форматированием
+ - Есть проблемы с форматированием.
  - Вынести 'Content-Type': 'application/json' в config
 
  Надо исправить:
- - Не совсем правильно был реализован API на async/await. В случае если response.ok !== true, надо возращать Promise.reject(response.status).
+ - Не совсем правильно был реализован API. В случае если response.ok !== true, надо возращать Promise.reject(response.status).
  - Добавление карточки реализовано неверно
- - метод getInitialCards должен вызываться только один раз
- - Отрефакторить метод addCard класса CardList так, чтобы он только добавлял карточку в DOM, а не обращался в
- api.js
  */

@@ -20,35 +20,39 @@ class Card {
     this._id = id;
   }
 
-  getName() {
-    return this._name;
-  }
-
-  getLink() {
-    return this._link;
-  }
-
   toggleLike(event) {
+    /*
+     Можно лучше:
+     - Хорошей практикой считается следующий вид форматирования:
+     this.api.toggleLike(this._id, this._isLiked)
+        .then(res => {
+          event.target.classList.toggle('place-card__like-icon_liked');
+          this.likeCounter.textContent = res.likes.length
+          this._isLiked = !this._isLiked;
+         })
+         .catch(err => console.log(err));
+    */
     this.api.toggleLike(this._id, this._isLiked)
       .then(res => {
         event.target.classList.toggle('place-card__like-icon_liked');
         this.likeCounter.textContent = res.likes.length
         this._isLiked = !this._isLiked;
-      }).catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   remove(event) {
     if (window.confirm("Вы действительно хотите удалить эту карточку?")) {
-      this.api.deleteCard(this._id).then(() => {
-        /*
-         Надо исправить:
-         - Удалять каточку при помощи метода deleteCard класса api
-         - Не использовать больше одного раза getInitialCards
-        */
-
-
+      this.api.deleteCard(this._id)
+      .then(() => {
         event.target.closest('.place-card').remove();
-      }).catch(err => console.log(err));
+        this._removeEventListeners()
+        /*
+         Надо испарвить:
+          - Удаляя карточку необходимо удалить ее слушатели
+        */
+      })
+      .catch(err => console.log(err));
 
     }
   }

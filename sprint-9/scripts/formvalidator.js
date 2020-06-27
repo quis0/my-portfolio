@@ -75,17 +75,18 @@ class FormValidator {
       }
     }
   };
-  resetErrors() {
+  resetErrors(form = this._form) {
     /*
      Надо исправить:
      - Этот метод должен быть внутри класса formValidator
     */
-    const inputs = [...this._form.elements];
+
+    const inputs = [...form.elements];
 
     inputs.forEach((input) => {
       if (input.type !== 'submit') {
         input.setCustomValidity('');
-        let errorElem = this._form.querySelector(`#error-${input.id}`);
+        let errorElem = form.querySelector(`#error-${input.id}`);
         errorElem.textContent = '';
       }
     });

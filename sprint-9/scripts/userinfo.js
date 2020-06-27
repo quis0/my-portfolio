@@ -14,10 +14,6 @@ class UserInfo {
   }
   updateUserInfo() {
     this.api.sendUserInfo(this.name, this.about).then(() => {
-      /*
-       Надо исправить:
-        - Опечатка
-      */
         this._nameField.textContent = this.name;
         this._aboutField.textContent = this.about;
 

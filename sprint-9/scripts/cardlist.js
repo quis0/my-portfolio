@@ -27,7 +27,11 @@ class CardList {
     this._array = array;
     this._array.forEach((elem) => {
       const card = this._createCard(elem, openImage, images, imagePopupPic);
-      this.addCard(card, true);
+      this.addCard(card);
+      /*
+       Можно лучше:
+       - Удалить неиспользуемый параметр true
+      */
     })
   }
 };

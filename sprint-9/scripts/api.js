@@ -11,9 +11,21 @@ class Api {
           authorization: this._authorization
         }
       });
-      if (response.ok) return await response.json();
+      if (response.ok) {
+        return await response.json();
+      } else {
+        return Promise.reject(response.status);
+      }
+      /*
+       Надо исправить:
+        - Если response.ok === false, необходимо возращать Promise.reject(response.status)
+      */
     } catch (err) {
-      return Promise.reject(err.status);
+      return Promise.reject(err);
+      /*
+       Надо исправить:
+       - Сюда попадет ошибка сети, у нее нет статуса. Необходимо возращать Promise.reject(err);
+       */
     }
 
   }
@@ -27,9 +39,21 @@ class Api {
           authorization: this._authorization,
         },
       });
-      if (response.ok) return await response.json();
+      if (response.ok) {
+        return await response.json();
+      } else {
+        return Promise.reject(response.status);
+      }
+      /*
+       Надо исправить:
+       - Если response.ok === false, необходимо возращать Promise.reject(response.status)
+       */
     } catch (err) {
-      return Promise.reject(err.status)
+      return Promise.reject(err)
+      /*
+       Надо исправить:
+       - Сюда попадет ошибка сети, у нее нет статуса. Необходимо возращать Promise.reject(err);
+       */
     }
   }
 
@@ -41,19 +65,27 @@ class Api {
           authorization: this._authorization,
         },
       });
-      if (response.ok) return await response.json();
+      if (response.ok) {
+        return await response.json();
+      } else {
+        return Promise.reject(response.status);
+      }
       /*
        Надо исправить:
-       - Возращается не response.json()
+       - Если response.ok === false, необходимо возращать Promise.reject(response.status)
        */
     } catch (err) {
-      return Promise.reject(err.status);
+      return Promise.reject(err);
+      /*
+       Надо исправить:
+       - Сюда попадет ошибка сети, у нее нет статуса. Необходимо возращать Promise.reject(err);
+       */
     }
   }
 
   async postCard(cardName, cardLink) {
     try {
-      const response =  await fetch(`${this._url}/cards`, {
+      const response = await fetch(`${this._url}/cards`, {
         method: 'POST',
         headers: {
           authorization: this._authorization,
@@ -64,13 +96,21 @@ class Api {
           link: cardLink
         })
       })
-      if (response.ok) return await response.json();
+      if (response.ok) {
+        return await response.json();
+      } else {
+        return Promise.reject(response.status);
+      }
       /*
        Надо исправить:
-       - Возращается не await response.json()
+       - Если response.ok === false, необходимо возращать Promise.reject(response.status)
        */
     } catch (err) {
-      return Promise.reject(err.status);
+      return Promise.reject(err);
+      /*
+       Надо исправить:
+       - Сюда попадет ошибка сети, у нее нет статуса. Необходимо возращать Promise.reject(err);
+       */
     }
   }
 
@@ -82,13 +122,21 @@ class Api {
         }
       });
 
-      if (response.ok) return await response.json();
+      if (response.ok) {
+        return await response.json();
+      } else {
+        return Promise.reject(response.status);
+      }
       /*
        Надо исправить:
-       - Нет обработки на успешный запрос
-      */
+       - Если response.ok === false, необходимо возращать Promise.reject(response.status)
+       */
     } catch (err) {
-      return Promise.reject(err.status)
+      return Promise.reject(err)
+      /*
+       Надо исправить:
+       - Сюда попадет ошибка сети, у нее нет статуса. Необходимо возращать Promise.reject(err);
+       */
     }
   }
 
@@ -105,13 +153,21 @@ class Api {
           about: about
         })
       });
-      if (response.ok) return await response.json();
+      if (response.ok) {
+        return await response.json();
+      } else {
+        return Promise.reject(response.status);
+      }
       /*
        Надо исправить:
-       - Возращается не response.json()
+       - Если response.ok === false, необходимо возращать Promise.reject(response.status)
        */
     } catch (err) {
-      return Promise.reject(err.status)
+      return Promise.reject(err)
+      /*
+       Надо исправить:
+       - Сюда попадет ошибка сети, у нее нет статуса. Необходимо возращать Promise.reject(err);
+       */
     }
   }
 

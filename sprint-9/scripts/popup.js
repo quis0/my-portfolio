@@ -1,16 +1,7 @@
 class Popup {
   constructor(popup) {
     this._popup = popup;
-    /*
-     Можно лучше:
-     - Удалить неиспользуемую переменную
-     */
     this._isForm = true;
-
-    /*
-     Надо исправить:
-      - Избавиться от блока try/catch, обрабатывать через условия
-    */
 
     if (this._popup.querySelector('.popup__form')) {
       this._form = this._popup.querySelector('.popup__form');
@@ -34,15 +25,23 @@ class Popup {
     if (this._isForm) {
       return this._form;
     }
-    return;
+    /*
+     Можно лучше:
+     - Убрать return
+    */
   }
 
-  setEventListeners() {
+  setEventListeners(resetErrors) {
     document.addEventListener('keydown', (event) => {
       if (event.code === 'Escape') {
 
         if (this._isForm) {
-          this.resetErrors();
+          console.log(this._form)
+          resetErrors(this._form);
+          /*
+           Надо исправить:
+           - Эту функцию необходимо передать внутрь класса
+          */
           this._form.reset();
         };
 
