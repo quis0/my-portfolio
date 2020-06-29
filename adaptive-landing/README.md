@@ -1,5 +1,7 @@
 <h1 align="center">Travel in Russia :train:</h1>
 
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 ### About
 Travel in Russia &ndash; adaptive website about interesting and beautiful places in Russia, as well as about travel.
 ### Functionality: 
@@ -17,4 +19,4 @@ Travel in Russia &ndash; adaptive website about interesting and beautiful places
 ### Future scope
    * Add an English version
 ### Try it: www.adaptive-landing-page.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
