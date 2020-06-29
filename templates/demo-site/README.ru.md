@@ -1,5 +1,7 @@
 <h1 align="center">Demo site</h1>
 
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 ### О проекте
 Demo site &ndash; сайт-визитка для фрилансера.
 ### Функциональность: 
@@ -14,4 +16,4 @@ Demo site &ndash; сайт-визитка для фрилансера.
 ### Планы на будущее
    * Добавить валидацию формы
 ### Посмотреть сайт: www.demo-site-adaptive.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
