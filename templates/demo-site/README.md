@@ -1,5 +1,7 @@
 <h1 align="center">Demo site</h1>
 
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 ### About
 Demo site &ndash; business card website for freelancer.
 ### Functionality: 
@@ -14,4 +16,4 @@ Demo site &ndash; business card website for freelancer.
 ### Future scope
    * Add form validation
 ### Try it: www.demo-site-adaptive.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
