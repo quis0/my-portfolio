@@ -1,4 +1,6 @@
-<h1 align="center">Путешествия по России</h1>
+<h1 align="center">Путешествия по России :train:</h1>
+
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 ### О проекте
 Путешествия по России &ndash; адаптивный сайт об интересных и красивых местах в России, а также о путешествиях.
@@ -17,4 +19,4 @@
 ### Планы на будущее
    * Добавить англоязычную версию сайта
 ### Посмотреть сайт: www.adaptive-landing-page.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
