@@ -1,4 +1,6 @@
-<h1 align="center">Научиться учиться</h1>
+<h1 align="center">Научиться учиться :pencil2:</h1>
+
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 ### О проекте
 Научиться учиться &ndash; статичный сайт-лендинг, рассказывающий об основных техниках и проблемах в обучении.
@@ -20,6 +22,5 @@
 ### Планы на будущее
    * Сделать сайт адаптивным
 ### Посмотреть сайт: www.static-landing-page.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-2-example.gif" alt="" >
