@@ -1,5 +1,7 @@
 <h1 align="center">Mesto</h1>
 
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 ### О проекте
 Mesto &ndash; интерактивный сервис для работы с фотографиями.
 
@@ -31,7 +33,7 @@ Mesto &ndash; интерактивный сервис для работы с ф�
    * Подключить проект к серверу
 
 ### Посмотреть сайт: www.mesto-service.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 
 <p align="center">
   <img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-7-8-example.gif" width="90%" alt="" >
