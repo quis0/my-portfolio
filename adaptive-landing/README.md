@@ -1,4 +1,4 @@
-<h1 align="center">Travel in Russia</h1>
+<h1 align="center">Travel in Russia :train:</h1>
 
 ### About
 Travel in Russia &ndash; adaptive website about interesting and beautiful places in Russia, as well as about travel.
