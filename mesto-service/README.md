@@ -1,5 +1,7 @@
 <h1 align="center">Mesto</h1>
 
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 ### About
 Mesto &ndash; interactive service for working with photos.
 
@@ -31,7 +33,7 @@ Mesto &ndash; interactive service for working with photos.
    * Connect the project to the server
 
 ### Try it: www.mesto-service.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
+
 
 <p align="center">
   <img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-7-8-example.gif" width="90%" alt="" >
