@@ -1,4 +1,6 @@
-<h1 align="center">Learn to learn</h1>
+<h1 align="center">Learn to learn :pencil2:</h1>
+
+*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 ### About
 Learn to learn &ndash; a static website that tells you about the main techniques and problems in learning.
@@ -20,6 +22,5 @@ Learn to learn &ndash; a static website that tells you about the main techniques
 ### Future scope
    * Make the adaptive version
 ### Try it: www.static-landing-page.surge.sh
-*Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 <img src="https://github.com/quis0/my-portfolio/blob/master/images/sprint-2-example.gif" alt="" >
