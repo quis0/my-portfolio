@@ -1,4 +1,4 @@
-<h1 align="center">Demo site</h1>
+<h1 align="center">Demo site :notebook:</h1>
 
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
