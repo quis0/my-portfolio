@@ -1,9 +1,9 @@
-<h1 align="center">Learn to learn :pencil2:</h1>
+<h1 align="center">Learn how to learn :pencil2:</h1>
 
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
 ### About
-Learn to learn &ndash; a static website that tells you about the main techniques and problems in learning.
+Learn how to learn &ndash; a static website that tells you about the main techniques and problems in learning.
 ### Functionality: 
 1. Sprint-1:
     * Static landing page based on the detailed guide (this one: [sprint-1-brief](./sprint-1/sprint-1-brief.pdf)) 
