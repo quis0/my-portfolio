@@ -1,4 +1,4 @@
-<h1 align="center">Mesto</h1>
+<h1 align="center">Mesto :camera:</h1>
 
 *Read this in other languages: [English](README.md), [Русский](README.ru.md)*
 
